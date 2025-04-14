@@ -11,25 +11,24 @@ const Footer = () => {
       <footer>
         <div className="footer-brand-container">
           <Image className="footer-logo" src={logo} alt="logo" />
-          <h2 className="footer-logo-text">levdev</h2>
-          <p className="footer-description-text">the rhythm-based aim trainer</p>
+          <h2 className="footer-logo-text">CandyChaos</h2>
+          <p className="footer-description-text">shooter</p>
         </div>
         <ul className="footer-icon-list">
           <li className="footer-icon-item">
             <Link
               className="footer-icon-link link hover-blue"
-              href="https://store.steampowered.com/app/2126580/levdev/"
             >
               <FontAwesomeIcon icon={faSteam} />
             </Link>
           </li>
           <li className="footer-icon-item">
-            <Link className="footer-icon-link link hover-blue" href="https://discord.gg/FKWGbtZXmU">
+            <Link className="footer-icon-link link hover-blue" href="">
               <FontAwesomeIcon icon={faDiscord} />
             </Link>
           </li>
           <li className="footer-icon-item">
-            <Link className="footer-icon-link link hover-blue" href="https://github.com/markoleptic/levdev">
+            <Link className="footer-icon-link link hover-blue" href="https://github.com/igorlev91">
               <FontAwesomeIcon icon={faGithub} />
             </Link>
           </li>

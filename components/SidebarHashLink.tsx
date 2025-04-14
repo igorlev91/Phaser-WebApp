@@ -14,10 +14,8 @@ type NavLinkProps = React.PropsWithChildren<LinkProps> & {
   topLevelLink?: boolean;
 };
 
-export const SidebarHashLink = ({ children, ...props }: NavLinkProps) => {
+export const SidebarHashLink = ({ children, hash, text, onScreen, topLevelLink, ...props }: NavLinkProps) => {
   const pathname = usePathname();
-
-  const { hash, text, onScreen = false, topLevelLink, ...rest } = props;
 
   const getSidebarClassName = () => {
     if (onScreen) {
@@ -27,18 +25,18 @@ export const SidebarHashLink = ({ children, ...props }: NavLinkProps) => {
   };
 
   return (
-    <Link
-      {...props}
-      href={pathname + hash}
-      replace={true}
-      passHref
-      scroll={true}
-      /*onClick={(e) => onBtnClick(e, pathname + hash, hash)}*/
-      className={getSidebarClassName()}
-    >
-      {text}
-      {children}
-    </Link>
+      <Link
+        {...props}
+        href={pathname + hash}
+        replace={true}
+        passHref
+        scroll={true}
+        /*onClick={(e) => onBtnClick(e, pathname + hash, hash)}*/
+        className={"sidebar-hash-link " + getSidebarClassName()}
+      >
+        {text}
+        {children}
+      </Link>
   );
 };
 
