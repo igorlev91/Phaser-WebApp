@@ -2,9 +2,9 @@ import SEO from "@/components/SEO";
 import { Metadata } from "next";
 
 export const metadata: Metadata = SEO({
-  title: "Developer Blog | levdev",
+  title: "Developer Blog | CandyChaos",
   type: "website",
-  additionalKeywords: ["levdev", "game", "unreal", "engine", "c++", "game", "developer"],
+  additionalKeywords: ["CandyChaos", "game", "unreal", "engine", "c++", "game", "developer"],
   clearDefaultKeywords: true,
   url: "/devblog"
 });
