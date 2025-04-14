@@ -5,6 +5,7 @@ export const metadata: Metadata = SEO({
   title: "Email Confirmation | levdev",
   type: "website",
   additionalKeywords: ["confirmation email"],
+  url: "/confirmation"
 });
 
 const Layout = ({ children }: { children: React.ReactNode }) => {

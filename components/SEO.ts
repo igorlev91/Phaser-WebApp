@@ -1,10 +1,3 @@
-
-const host = process.env.NODE_ENV === "development" ? process.env.host_development : process.env.host_production;
-if (!host) {
-  throw new Error(
-    "Missing host environment variables. Please set host_development and host_production in your .env file"
-  );
-}
 import { Metadata } from "next";
 import type { OpenGraphType } from "next/dist/lib/metadata/types/opengraph-types";
 
@@ -17,9 +10,16 @@ export interface SEOInterface {
   twitterCard?: "summary" | "summary_large_image" | undefined;
   additionalKeywords?: string[] | undefined;
   clearDefaultKeywords?: boolean;
+  isRoot?: boolean;
 }
 
 export default function SEO(params: SEOInterface): Metadata {
+  const host = process.env.NODE_ENV === "development" ? process.env.host_development : process.env.host_production;
+if (!host) {
+  throw new Error(
+    "Missing host environment variables. Please set host_development and host_production in your .env file"
+  );
+}
   let {
     title,
     type,
@@ -29,20 +29,13 @@ export default function SEO(params: SEOInterface): Metadata {
     twitterCard,
     additionalKeywords,
     clearDefaultKeywords = false,
+    isRoot = false,
   } = params;
   title = title || "levdev";
   type = type || "website";
-  description = description || "web-3 shooter game";
-  url = url ? `${host}${url}` : `${host}`;
+  description = description || "web3 shooter";
   twitterCard = twitterCard || "summary";
-  let keywords = ["levdev","game"];
-  let metadataBase;
-  try {
-    metadataBase = new URL(url); // Potential error point 1
- } catch (error) {
-    console.error("Invalid URL construction:", error); // This log matches your output
-    metadataBase = new URL(url); // Potential error point 2 (will also fail)
- }
+  let keywords = ["shooter", "game"];
   if (clearDefaultKeywords) {
     keywords = [];
   }
@@ -50,21 +43,33 @@ export default function SEO(params: SEOInterface): Metadata {
     keywords.push(...additionalKeywords);
   }
 
+  if (isRoot)
+    return {
+      title: title,
+      description: description,
+      metadataBase: new URL(`${host}`),
+      keywords: keywords,
+      openGraph: {
+        title: ogTwitterTitle || title,
+        description: description,
+        siteName: "levdev",
+        locale: "en_US",
+        type: type,
+      },
+      twitter: {
+        card: twitterCard,
+        title: ogTwitterTitle || title,
+        description: description,
+      },
+    };
   return {
     title: title,
     description: description,
-    metadataBase: new URL(url),
     keywords: keywords,
-    alternates: {
-      canonical: "/",
-      languages: {
-        "en-US": "/en-US",
-      },
-    },
     openGraph: {
       title: ogTwitterTitle || title,
       description: description,
-      url: new URL(url),
+      url: url,
       siteName: "levdev",
       locale: "en_US",
       type: type,
