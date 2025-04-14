@@ -97,9 +97,59 @@ const BSInlineCodeBlock = ({
   );
 };
 
+const BSInlineCodeBlockHeader = ({
+  code,
+  language,
+  showLineNumbers,
+  fontSize = "inherit",
+  lineHeight = "inherit",
+  padding = "0 0.1em",
+  color = "inherit",
+}) => {
+  inlineCodeBlockStyle.lineHeight = lineHeight;
+  inlineCodeBlockStyle.lineHeight = lineHeight;
+  return (
+    <CodeBlock
+      text={code}
+      language={language || "c"}
+      showLineNumbers={showLineNumbers || false}
+      theme={regularTheme}
+      codeBlockStyle={inlineCodeBlockStyle}
+      codeContainerStyle={inlineCodeBlockStyle}
+      customStyle={{
+        display: "flex",
+        overflowY: "clip",
+        overflowWrap: "anywhere",
+        fontSize: fontSize,
+        lineHeight: lineHeight,
+        padding: padding,
+        color: color,
+      }}
+      wrapLines={true}
+    />
+  );
+};
+
 let inlineTheme = Object.assign({}, dracula);
 inlineTheme.backgroundColor = "transparent";
-const BSInlineFunction = ({
+
+const BSInlineFunction = ({ className = "", functionName = "", fontSize = "inherit", lineHeight = "inherit" }) => {
+  if (className.length === 0) {
+    return <span className={`inline-code function-color`}>{functionName}</span>;
+  } else if (functionName.length === 0) {
+    return <span className={`inline-code`}>{className}</span>;
+  } else {
+    return (
+      <>
+        <span className={`inline-code class`}>{className}</span>
+        <span className="inline-code separator text-white">{"::"}</span>
+        <span className="inline-code function function-color">{functionName}</span>
+      </>
+    );
+  }
+};
+
+const BSInlineFunction_DEP = ({
   className = "",
   functionName = "",
   language = "c",
@@ -108,6 +158,7 @@ const BSInlineFunction = ({
   lineHeight = "inherit",
 }) => {
   inlineCodeBlockStyle.lineHeight = lineHeight;
+  let text = "";
   return (
     <span className="inline-code-bg">
       {className.length === 0 ? (
@@ -189,8 +240,32 @@ const BSInlineFunction = ({
     </span>
   );
 };
-
 const BSInlineEnum = ({ className, valueName, language = "c", showLineNumbers = false, fontSize = "inherit", lineHeight = "inherit" }) => {
+  if (className.length === 0) {
+    return <span className={`inline-code function-color`}>{functionName}</span>;
+  } else if (valueName.length === 0) {
+    return <span className={`inline-code`}>{className}</span>;
+  } else {
+    return (
+      <>
+        <span className={`inline-code`}>
+          {className}
+          {<span className="text-white">{"::"}</span>}
+          {<span className="enum-color">{valueName}</span>}
+        </span>
+      </>
+    );
+  }
+};
+
+const BSInlineEnum_DEP = ({
+  className,
+  valueName,
+  language = "c",
+  showLineNumbers = false,
+  fontSize = "inherit",
+  lineHeight = "inherit",
+}) => {
   inlineCodeBlockStyle.lineHeight = lineHeight;
   return (
     <span className="inline-code-bg">
@@ -258,4 +333,4 @@ const BSInlineEnum = ({ className, valueName, language = "c", showLineNumbers = 
   );
 };
 
-export { BSCodeBlock, BSInlineCodeBlock, BSInlineEnum, BSInlineFunction };
+export { BSCodeBlock, BSInlineCodeBlock, BSInlineCodeBlockHeader, BSInlineEnum, BSInlineFunction };
