@@ -1,5 +1,10 @@
 
 const host = process.env.NODE_ENV === "development" ? process.env.host_development : process.env.host_production;
+if (!host) {
+  throw new Error(
+    "Missing host environment variables. Please set host_development and host_production in your .env file"
+  );
+}
 import { Metadata } from "next";
 import type { OpenGraphType } from "next/dist/lib/metadata/types/opengraph-types";
 
@@ -27,10 +32,17 @@ export default function SEO(params: SEOInterface): Metadata {
   } = params;
   title = title || "levdev";
   type = type || "website";
-  description = description || "the rhythm-based aim trainer";
+  description = description || "web-3 shooter game";
   url = url ? `${host}${url}` : `${host}`;
   twitterCard = twitterCard || "summary";
-  let keywords = ["levdev","game","aim trainer","aim-trainer","rhythm","music"];
+  let keywords = ["levdev","game"];
+  let metadataBase;
+  try {
+    metadataBase = new URL(url); // Potential error point 1
+ } catch (error) {
+    console.error("Invalid URL construction:", error); // This log matches your output
+    metadataBase = new URL(url); // Potential error point 2 (will also fail)
+ }
   if (clearDefaultKeywords) {
     keywords = [];
   }
