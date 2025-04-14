@@ -4,7 +4,8 @@ import { getRedirectUrl, createRelyingParty, createSteamVerifyUrl, hostUrl } fro
 // steam login endpoint, returns redirectURL or error
 export async function GET(req: NextRequest) {
   try {
-    const relyingParty = createRelyingParty(createSteamVerifyUrl());
+    const steamVerifyUrl = createSteamVerifyUrl();
+    const relyingParty = createRelyingParty(steamVerifyUrl);
     const authUrl = await getRedirectUrl(relyingParty);
 
     if (authUrl.startsWith("Authentication failed")) {
@@ -14,6 +15,7 @@ export async function GET(req: NextRequest) {
     }
   } catch (error) {
     console.log(error);
+    console.log("api/login/steam redirecting to unknown error");
     return NextResponse.redirect(`${hostUrl as string}/redirect/?context=unknown&success=false`, { status: 302 });
   }
 }
