@@ -18,7 +18,7 @@ const PatchNotes = () => {
               >
                 0.6.0
               </Link>
-              <p className="pn-date">Aprile 14, 2025</p>
+              <p className="pn-date">October 25, 2023</p>
             </div>
             <ul>
               <p className="fs-300">
