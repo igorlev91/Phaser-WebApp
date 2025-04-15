@@ -1,8 +1,8 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import LineChart from "@/components/Charts/LineChart";
 import SelectBox from "@/components/SelectBox";
-import { usePlayerDataContext } from "@/context/PlayerDataContext";
+import { Score, usePlayerDataContext } from "@/context/PlayerDataContext";
 import LocationAccuracyHeatmap from "@/components/Charts/LocationAccuracyMap";
 import {
 	getGameModes,
@@ -12,102 +12,69 @@ import {
 	findMostRecentGameModeOption,
 	findMostRecentSongOption,
 	findMostRecentDifficultyOption,
-	checkInvalidNum,
+	LabelValue,
+	FilteredScore,
+	updateBests,
+	updateAvgs,
 } from "./StatFunctions";
 import { DateFilter } from "./DateFilter";
 import { DateTime } from "luxon";
 
 const DefaultModes = () => {
 	// Select box options
-	const [gameModeOptions, setGameModeOptions] = useState([]);
-	const [songOptions, setSongOptions] = useState([]);
-	const [difficultyOptions, setDifficultyOptions] = useState([]);
+	const [gameModeOptions, setGameModeOptions] = useState<LabelValue[]>([]);
+	const [songOptions, setSongOptions] = useState<LabelValue[]>([]);
+	const [difficultyOptions, setDifficultyOptions] = useState<LabelValue[]>([]);
 
 	// Data passed to Line Chart
-	const [scores, setScores] = useState();
-	const [dates, setDates] = useState();
-	const [minDate, setMinDate] = useState();
-	const [maxDate, setMaxDate] = useState();
+	const [scores, setScores] = useState<FilteredScore[]>([]);
+	const [dates, setDates] = useState<string[]>([]);
+	const [minDate, setMinDate] = useState<DateTime | null>(null);
+	const [maxDate, setMaxDate] = useState<DateTime | null>(null);
 
 	// Best/Average Text Box values
-	const [bestScore, setBestScore] = useState();
-	const [bestAccuracy, setBestAccuracy] = useState();
-	const [bestStreak, setBestStreak] = useState();
-	const [bestCompletion, setBestCompletion] = useState();
-	const [bestTimeOffset, setBestTimeOffset] = useState();
-	const [avgScore, setAvgScore] = useState();
-	const [avgAccuracy, setAvgAccuracy] = useState();
-	const [avgStreak, setAvgStreak] = useState();
-	const [avgCompletion, setAvgCompletion] = useState();
-	const [avgTimeOffset, setAvgTimeOffset] = useState();
+	const [bestScore, setBestScore] = useState<string>("");
+	const [bestAccuracy, setBestAccuracy] = useState<string>("");
+	const [bestStreak, setBestStreak] = useState<string>("");
+	const [bestCompletion, setBestCompletion] = useState<string>("");
+	const [bestTimeOffset, setBestTimeOffset] = useState<string>("");
+	const [avgScore, setAvgScore] = useState<string>("");
+	const [avgAccuracy, setAvgAccuracy] = useState<string>("");
+	const [avgStreak, setAvgStreak] = useState<string>("");
+	const [avgCompletion, setAvgCompletion] = useState<string>("");
+	const [avgTimeOffset, setAvgTimeOffset] = useState<string>("");
 
 	// Tracks currently selected options from Select boxes
-	const [selectedGameMode, setSelectedGameMode] = useState("");
-	const [selectedSong, setSelectedSong] = useState("");
-	const [selectedDifficulty, setSelectedDifficulty] = useState("");
-	const [statsSubtitle, setStatsSubtitle] = useState("");
+	const [selectedGameMode, setSelectedGameMode] = useState<string>("");
+	const [selectedSong, setSelectedSong] = useState<string>("");
+	const [selectedDifficulty, setSelectedDifficulty] = useState<string>("");
+	const [statsSubtitle, setStatsSubtitle] = useState<string>("");
 
 	// Hooks
-	// const errRef = useRef();
-	const { data, errMsg, setErrMsg } = usePlayerDataContext();
-
-	// clear error message when Select box option changed
-	useEffect(() => {
-		setErrMsg("");
-	}, [gameModeOptions, songOptions, difficultyOptions]);
+	const { data } = usePlayerDataContext();
 
 	// initialize data for page
 	useEffect(() => {
 		try {
-			async function AsyncInitPageWrapper(data) {
+			async function AsyncInitPageWrapper(data: Score[] | null) {
 				await initPage(data);
 			}
 			if (data) {
 				AsyncInitPageWrapper(data);
 			}
 		} catch (err) {
-			setErrMsg(err.message);
 			console.log(err);
 		}
 	}, [data]);
 
-	// auto select most recently played game mode when game mode options refresh
-	useEffect(() => {
-		findMostRecentGameModeOption(data, gameModeOptions, false).then((option) => setSelectedGameMode(option));
-	}, [gameModeOptions]);
-
-	// auto select most recently played song when song options refresh
-	useEffect(() => {
-		findMostRecentSongOption(data, songOptions, false).then((option) => setSelectedSong(option));
-	}, [songOptions]);
-
-	// auto select most recently played difficulty when difficulty options refresh
-	useEffect(() => {
-		findMostRecentDifficultyOption(data, difficultyOptions).then((option) => setSelectedDifficulty(option));
-	}, [difficultyOptions]);
-
-	// update songs on game mode change
-	useEffect(() => {
-		getMatchingSongOptions(data, selectedGameMode, false).then((options) => setSongOptions(options));
-	}, [selectedGameMode]);
-
-	// update difficulties on song change
-	useEffect(() => {
-		getMatchingDifficultyOptions(data, selectedGameMode, selectedSong).then((options) => setDifficultyOptions(options));
-	}, [selectedGameMode, selectedSong]);
-
-	// executed when selected gamemode, song, or difficulty changes
-	useEffect(() => {
-		updateSelection(data, selectedGameMode, selectedSong, selectedDifficulty);
-	}, [selectedGameMode, selectedSong, selectedDifficulty]);
-
 	// initial render
-	const initPage = async (data) => {
+	const initPage = async (data: Score[] | null) => {
 		// game modes are the only thing that will always be the same
+		if (!data) return;
 		const modes = await getGameModes(data, false);
 		setGameModeOptions(modes);
-		const mode = await findMostRecentGameModeOption(data, modes);
-		setSelectedGameMode(mode);
+		const recent = await findMostRecentGameModeOption(data, modes, false);
+		setSelectedGameMode(recent || "");
 
 		if (data && data.length === 0) {
 			setStatsSubtitle("No scores yet. Play the game!");
@@ -116,13 +83,64 @@ const DefaultModes = () => {
 		}
 	};
 
-	const onDateRangeChange = async (startDate, endDate) => {
+	// auto select most recently played game mode when game mode options refresh
+	useEffect(() => {
+		if (!data) return;
+		findMostRecentGameModeOption(data, gameModeOptions, false).then((option) => setSelectedGameMode(option || ""));
+	}, [gameModeOptions]);
+
+	// auto select most recently played song when song options refresh
+	useEffect(() => {
+		if (!data) return;
+		findMostRecentSongOption(data, songOptions, false).then((option) => setSelectedSong(option || ""));
+	}, [songOptions]);
+
+	// auto select most recently played difficulty when difficulty options refresh
+	useEffect(() => {
+		if (!data) return;
+		findMostRecentDifficultyOption(data, difficultyOptions).then((option) => setSelectedDifficulty(option || ""));
+	}, [difficultyOptions]);
+
+	// update songs on game mode change
+	useEffect(() => {
+		if (!data) return;
+		getMatchingSongOptions(data, selectedGameMode, false).then((options) => setSongOptions(options));
+	}, [selectedGameMode]);
+
+	// update difficulties on song change
+	useEffect(() => {
+		if (!data) return;
+		getMatchingDifficultyOptions(data, selectedGameMode, selectedSong).then((options) =>
+			setDifficultyOptions(options)
+		);
+	}, [selectedGameMode, selectedSong]);
+
+	// executed when selected gamemode, song, or difficulty changes
+	useEffect(() => {
+		updateSelection(data, selectedGameMode, selectedSong, selectedDifficulty);
+	}, [selectedGameMode, selectedSong, selectedDifficulty]);
+
+	const onDateRangeChange = async (startDate: DateTime, endDate: DateTime) => {
 		updateSelection(data, selectedGameMode, selectedSong, selectedDifficulty, [startDate, endDate]);
 	};
 
 	// updates the charts and info boxes
-	const updateSelection = async (data, selectedGameMode, selectedSong, selectedDifficulty, dateRange = null) => {
-		const { values, keys } = await getScores(data, false, selectedGameMode, selectedSong, selectedDifficulty, dateRange);
+	const updateSelection = async (
+		scores: Score[] | null,
+		selectedGameMode: string,
+		selectedSong: string,
+		selectedDifficulty: string,
+		dateRange: [DateTime, DateTime] | null = null
+	) => {
+		if (!scores) return;
+		const { values, keys } = await getScores(
+			scores,
+			false,
+			selectedGameMode,
+			selectedSong,
+			selectedDifficulty,
+			dateRange
+		);
 
 		setScores(values);
 		setDates(keys);
@@ -131,31 +149,8 @@ const DefaultModes = () => {
 			setMaxDate(DateTime.max(...keys.map((date) => DateTime.fromISO(date))).endOf("day"));
 			setMinDate(DateTime.min(...keys.map((date) => DateTime.fromISO(date))).startOf("day"));
 		}
-		await updateBests(values);
-		await updateAvgs(values);
-	};
-
-	const updateBests = async (scores) => {
-		setBestScore(checkInvalidNum(Math.round((Math.max(...scores.map((value) => value.highScore)) * 10) / 10)));
-		setBestAccuracy(checkInvalidNum(Math.round(Math.max(...scores.map((value) => value.accuracy)) * 1000) / 10) + "%");
-		setBestCompletion(checkInvalidNum(Math.round(Math.max(...scores.map((value) => value.completion)) * 1000) / 10) + "%");
-		setBestTimeOffset(checkInvalidNum(Math.round(Math.min(...scores.map((value) => value.timeOffset)) * 1000)) + " ms");
-		setBestStreak(checkInvalidNum(Math.max(...scores.map((value) => value.streak))));
-	};
-
-	const updateAvgs = async (scores) => {
-		setAvgScore(checkInvalidNum(Math.round(scores.map((value) => value.score).reduce((p, c, i, a) => p + c / a.length, 0))));
-		setAvgAccuracy(
-			checkInvalidNum(Math.round(scores.map((value) => value.accuracy).reduce((p, c, i, a) => p + c / a.length, 0) * 1000) / 10) + "%"
-		);
-		setAvgStreak(checkInvalidNum(Math.round(scores.map((value) => value.streak).reduce((p, c, i, a) => p + c / a.length, 0))));
-		setAvgCompletion(
-			checkInvalidNum(Math.round(scores.map((value) => value.completion).reduce((p, c, i, a) => p + c / a.length, 0) * 1000) / 10) +
-				"%"
-		);
-		setAvgTimeOffset(
-			checkInvalidNum(Math.round(scores.map((value) => value.timeOffset).reduce((p, c, i, a) => p + c / a.length, 0) * 1000)) + " ms"
-		);
+		await updateBests(values, setBestScore, setBestAccuracy, setBestCompletion, setBestTimeOffset, setBestStreak);
+		await updateAvgs(values, setAvgScore, setAvgAccuracy, setAvgCompletion, setAvgTimeOffset, setAvgStreak);
 	};
 
 	const scoreOptions = {
@@ -210,11 +205,6 @@ const DefaultModes = () => {
 				<></>
 			) : (
 				<>
-					{/* <div className={errMsg && errMsg !== "" ? "responsive-centered-container" : "offscreen"}>
-            <p ref={errRef} className={errMsg && errMsg !== "" ? "errmsg" : "offscreen"} aria-live="assertive">
-              {errMsg}
-            </p>
-          </div> */}
 					<div className="content-main">
 						<div className="select-container">
 							<div className="select-wrapper">
@@ -225,7 +215,10 @@ const DefaultModes = () => {
 										onChange={(value) => setSelectedGameMode(value.value)}
 										placeholder={"Filter by game mode"}
 										options={gameModeOptions}
-										value={{ label: selectedGameMode, value: selectedGameMode }}
+										value={{
+											label: selectedGameMode,
+											value: selectedGameMode,
+										}}
 									/>
 								</div>
 							</div>
@@ -237,7 +230,10 @@ const DefaultModes = () => {
 										onChange={(value) => setSelectedSong(value.value)}
 										placeholder={"Filter by song"}
 										options={songOptions}
-										value={{ label: selectedSong, value: selectedSong }}
+										value={{
+											label: selectedSong,
+											value: selectedSong,
+										}}
 									/>
 								</div>
 							</div>
@@ -249,7 +245,10 @@ const DefaultModes = () => {
 										onChange={(value) => setSelectedDifficulty(value.value)}
 										placeholder={"Filter by Difficulty"}
 										options={difficultyOptions}
-										value={{ label: selectedDifficulty, value: selectedDifficulty }}
+										value={{
+											label: selectedDifficulty,
+											value: selectedDifficulty,
+										}}
 									/>
 								</div>
 							</div>
@@ -323,7 +322,11 @@ const DefaultModes = () => {
 					</div>
 					<div className="content-main">
 						<div id="scores-chart" className="chart-scroll">
-							<LineChart labels={dates} data={scores ? scores.map((value) => value.score) : ""} myOptions={scoreOptions} />
+							<LineChart
+								labels={dates}
+								data={scores ? scores.map((value) => value.score) : ""}
+								myOptions={scoreOptions}
+							/>
 						</div>
 						<div id="accuracy-chart" className="chart-scroll">
 							<LineChart
@@ -340,7 +343,11 @@ const DefaultModes = () => {
 							/>
 						</div>
 						<div id="streak-chart" className="chart-scroll">
-							<LineChart labels={dates} data={scores ? scores.map((value) => value.streak) : ""} myOptions={streakOptions} />
+							<LineChart
+								labels={dates}
+								data={scores ? scores.map((value) => value.streak) : ""}
+								myOptions={streakOptions}
+							/>
 						</div>
 						<div id="avg-time-offset-chart" className="chart-scroll">
 							<LineChart

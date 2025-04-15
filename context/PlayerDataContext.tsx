@@ -1,85 +1,148 @@
 "use client";
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { useAuthContext } from "../components/Auth/AuthContext";
-import useRefreshToken from "@/hooks/useRefreshToken";
+import { useAuthContext } from "@/context/AuthContext";
 
-const PlayerDataContext = createContext({});
+export interface Accuracy {
+	accuracy: number[];
+}
 
-export const usePlayerDataContext = () => useContext(PlayerDataContext);
+export interface Score {
+	accuracy: number;
+	avgTimeOffset: number;
+	baseGameMode: string;
+	completion: number;
+	customGameModeName: string;
+	difficulty: string;
+	gameModeType: string;
+	highScore: number;
+	locationAccuracy: Accuracy[] | null;
+	score: number;
+	scoreID: number;
+	shotsFired: number;
+	songLength: number;
+	songTitle: string;
+	streak: number;
+	targetsHit: number;
+	targetsSpawned: number;
+	time: string;
+	totalPossibleDamage: number;
+	totalTimeOffset: number;
+	userID: string;
+}
+
+export interface GameModeTime {
+	gameModeName: string;
+	gameModeType: string;
+	totalTime: number;
+}
+
+export interface DeleteScoresResponse {
+	"Number Removed": number;
+}
+
+export interface ErrorResponse {
+	message: string;
+}
+
+export interface PlayerDataContextType {
+	data: Score[] | null;
+	gameModeTimes: GameModeTime[] | null;
+	deleteScores: (scoreIDs: number[]) => Promise<DeleteScoresResponse | ErrorResponse>;
+}
+
+const PlayerDataContext = createContext<PlayerDataContextType | undefined>(undefined);
+
+export const usePlayerDataContext = () => {
+	const context = useContext(PlayerDataContext);
+	if (!context) {
+		throw new Error("usePlayerDataContext must be used within a PlayerDataProvider");
+	}
+	return context;
+};
 
 // provides the Authorization Bearer header to access protected player data
 export const PlayerDataProvider = ({ children }: { children: React.ReactNode }) => {
-  const [data, setData] = useState(null);
-  const [customGameModesTime, SetCustomGameModesTime] = useState(null);
-  const [defaultGameModesTime, SetDefaultGameModesTime] = useState(null);
-  const [errMsg, setErrMsg] = useState<string | null>(null);
-  const { auth, setAuth } = useAuthContext();
-  const refresh = useRefreshToken();
+	const [data, setData] = useState<Score[] | null>(null);
+	const [gameModeTimes, SetGameModeTimes] = useState<GameModeTime[] | null>(null);
+	const { auth, isAccessTokenValid, refreshAccessToken } = useAuthContext();
 
-  useEffect(() => {
-    const initializePlayerData = async () => {
-      // TEMP SCUFFED SOLUTION
-      if (auth && auth?.exp < Date.now() / 1000) {
-        const freshAuthData = await refresh();
-        setAuth(freshAuthData);
-      }
+	const initializePlayerData = async () => {
+		let localAuth = auth ? Object.assign({}, auth) : null;
+		const isValid = await isAccessTokenValid();
+		if (!isValid) localAuth = await refreshAccessToken();
+		if (!localAuth) {
+			return;
+		}
+		try {
+			const response = await fetch(`/api/profile/${localAuth?.userID}/getscores`, {
+				headers: {
+					"Content-Type": "application/json",
+					"Access-Control-Allow-Credentials": "true",
+					Authorization: `Bearer ${localAuth?.accessToken}`,
+				},
+				method: "GET",
+			});
+			const responseData = await response.json();
+			if (response.status === 200) {
+				setData(responseData);
+			}
+			const gameModeTimesResponse = await fetch(`/api/profile/${localAuth?.userID}/gettotaltimegamemodes`, {
+				headers: {
+					"Content-Type": "application/json",
+					"Access-Control-Allow-Credentials": "true",
+					Authorization: `Bearer ${localAuth?.accessToken}`,
+				},
+				method: "GET",
+			});
+			const gameModeTimesResponseData = await gameModeTimesResponse.json();
+			if (gameModeTimesResponse.status === 200) {
+				SetGameModeTimes(gameModeTimesResponseData);
+			}
+		} catch (err) {
+			console.log(err);
+		}
+	};
 
-      try {
-        const response = await fetch(`/api/profile/${auth?.userID}/getscores`, {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Credentials": "true",
-            Authorization: `Bearer ${auth?.accessToken}`,
-          },
-          method: "GET",
-        });
+	useEffect(() => {
+		initializePlayerData();
+	}, []);
 
-        const responseData = await response.json();
-        if (response.status === 200) {
-          setData(responseData);
-        } else {
-          setErrMsg(responseData.message);
-        }
+	const deleteScores = async (scoreIDs: number[]): Promise<DeleteScoresResponse | ErrorResponse> => {
+		let localAuth = auth ? Object.assign({}, auth) : null;
+		const isValid = await isAccessTokenValid();
+		if (!isValid) localAuth = await refreshAccessToken();
+		try {
+			const deleteResponse = await fetch(`/api/profile/${localAuth?.userID}/deletescores`, {
+				headers: {
+					"Content-Type": "application/json",
+					"Access-Control-Allow-Credentials": "true",
+					Authorization: `Bearer ${localAuth?.accessToken}`,
+				},
+				method: "DELETE",
+				body: JSON.stringify({ scoreIDs }),
+			});
+			const deleteResponseData = await deleteResponse.json();
+			console.log(deleteResponse, deleteResponseData);
+			if (deleteResponse.status === 200) {
+				initializePlayerData();
+				return deleteResponseData as DeleteScoresResponse;
+			}
+			return deleteResponseData as ErrorResponse;
+		} catch (err) {
+			console.error(err);
+			return { message: err as string };
+		}
+	};
 
-        const customResponse = await fetch(`/api/profile/${auth?.userID}/gettotaltimecustomgamemodes`, {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Credentials": "true",
-            Authorization: `Bearer ${auth?.accessToken}`,
-          },
-          method: "GET",
-        });
-        const customResponseData = await customResponse.json();
-        if (customResponse.status === 200) {
-          SetCustomGameModesTime(customResponseData);
-        }
-
-        const defaultResponse = await fetch(`/api/profile/${auth?.userID}/gettotaltimedefaultgamemodes`, {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Credentials": "true",
-            Authorization: `Bearer ${auth?.accessToken}`,
-          },
-          method: "GET",
-        });
-        const defaultResponseData = await defaultResponse.json();
-        if (defaultResponse.status === 200) {
-          SetDefaultGameModesTime(defaultResponseData);
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    if (!auth) {
-      setErrMsg("Not Authenticated");
-      return;
-    }
-    initializePlayerData();
-  }, [auth]);
-
-  return (
-    <PlayerDataContext.Provider value={{ data, customGameModesTime, defaultGameModesTime, errMsg, setErrMsg }}>
-      {children}
-    </PlayerDataContext.Provider>
-  );
+	return (
+		<PlayerDataContext.Provider
+			value={{
+				data,
+				gameModeTimes,
+				deleteScores,
+			}}
+		>
+			{children}
+		</PlayerDataContext.Provider>
+	);
 };

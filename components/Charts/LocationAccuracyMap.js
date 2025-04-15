@@ -15,7 +15,7 @@ function titleCallback(context) {
 }
 
 function getAvgValue(data, currentIndex) {
-	if (data === null || data.length === 0) return null;
+	if (!data  || data.length === 0) return null;
 	let sum = 0;
 	for (let i = 0; i < data.length; i++) {
 		if (data[i][currentIndex] === -1.0) {
@@ -30,7 +30,7 @@ function getAvgValue(data, currentIndex) {
 }
 
 function getAveragedLocAcc(data) {
-	if (data === null || data.length === 0 || data === "") {
+	if (!data || data.length === 0 || data === "") {
 		return null;
 	}
 	if (data.length === 1) {
@@ -49,10 +49,10 @@ function getAveragedLocAcc(data) {
 }
 
 function getWidth(data) {
-	if (data === null || data === "") {
+	if (!data || data === "") {
 		return null;
 	}
-	if (data?.map((x) => x.map((y) => Number(y.x)))[0] === undefined) {
+	if (data.map((x) => x.map((y) => Number(y.x)))[0] === undefined) {
 		return null;
 	}
 	const width = Math.max(...data.map((x) => x.map((y) => Number(y.x)))[0]) + 1;
@@ -60,7 +60,7 @@ function getWidth(data) {
 }
 
 function getHeight(data) {
-	if (data === null || data === "") {
+	if (!data || data === "") {
 		return null;
 	}
 	if (data.map((x) => x.map((y) => Number(y.y)))[0] === undefined) {
@@ -137,7 +137,8 @@ export default function LocationAccuracyHeatmap(props, canvas) {
 					}
 					return (
 						(chart.chartArea || {}).height / height -
-						(((chart.chartArea || {}).height / height) * 0.05 * chart.chartArea.width) / chart.chartArea.height
+						(((chart.chartArea || {}).height / height) * 0.05 * chart.chartArea.width) /
+							chart.chartArea.height
 					);
 				},
 				backgroundColor: function (context) {
@@ -157,7 +158,6 @@ export default function LocationAccuracyHeatmap(props, canvas) {
 	};
 
 	const options = {
-		tension: 0.3,
 		responsive: true,
 		maintainAspectRatio: false,
 		onResize: onChartResize,
@@ -222,8 +222,7 @@ export default function LocationAccuracyHeatmap(props, canvas) {
 		},
 		scales: {
 			y: {
-				type: "category",
-				bounds: data,
+				type: "time",
 				display: false,
 				offset: true,
 				reverse: true,
@@ -236,8 +235,7 @@ export default function LocationAccuracyHeatmap(props, canvas) {
 				},
 			},
 			x: {
-				type: "category",
-				bounds: data,
+				type: "time",
 				display: false,
 				offset: true,
 				ticks: {
