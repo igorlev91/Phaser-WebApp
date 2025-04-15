@@ -28,9 +28,9 @@ export default function SEO(params: SEOInterface): Metadata {
 	} = params;
 	title = title || "levdev";
 	type = type || "website";
-	description = description || "web-3 shooter";
+	description = description || "the rhythm-based aim trainer";
 	twitterCard = twitterCard || "summary";
-	let keywords = ["unreal", "game"];
+	let keywords = ["levdev", "beat shot", "game", "aim training", "aim trainer", "aim-trainer", "rhythm", "music"];
 	if (clearDefaultKeywords) {
 		keywords = [];
 	}
