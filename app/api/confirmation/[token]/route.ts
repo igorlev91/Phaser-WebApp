@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from "next/server";
-import { findUser } from "@/util/DatabaseFunctions";
-import { verifyJWT } from "@/util/ServerFunctions";
-import type { TokenParams } from "@/types/Interfaces";
+import { findUser } from "@/utility/DatabaseFunctions";
+import { verifyJWT } from "@/utility/ServerFunctions";
+import type { TokenParams } from "@/types/auth.types";
 
 export async function GET(req: NextRequest, { params }: { params: TokenParams }) {
 	try {
