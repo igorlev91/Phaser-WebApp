@@ -27,13 +27,13 @@ const nextConfig = {
 				permanent: true,
 			},
 			{
-				source: "/login/steam",
-				destination: "/api/login/steam",
+				source: "/login/steam/:path*",
+				destination: "/api/login/steam/:path*",
 				permanent: true,
 			},
 			{
-				source: "/steamlink",
-				destination: "/api/steamlink",
+				source: "/steamlink/:userID",
+				destination: "/api/steamlink/:userID",
 				permanent: true,
 			},
 			{

@@ -22,10 +22,10 @@ export async function POST(req: NextRequest) {
 		}
 
 		// create short-lived access token
-		const accessToken = createAccessToken(user.userID, user.displayName || "");
+		const accessToken = createAccessToken(user.userID);
 
 		// create long-lived refresh token
-		const refreshToken = createRefreshToken(user.userID, user.displayName || "");
+		const refreshToken = createRefreshToken(user.userID);
 
 		// save long-lived refresh token in database
 		await user.update({ refreshToken: refreshToken });
@@ -38,15 +38,15 @@ export async function POST(req: NextRequest) {
 			maxAge: 24 * 60 * 60 * 365 * 5,
 		});
 
+		// Still need to send display name if logging in in-game w/ username/email
+		const jsonData = {
+			userID: String(user.userID),
+			accessToken: accessToken,
+			displayName: user.displayName,
+		};
+
 		// Send short-lived access token as JSON
-		return NextResponse.json(
-			{
-				userID: String(user.userID),
-				displayName: user.displayName,
-				accessToken: accessToken,
-			},
-			{ status: 200 }
-		);
+		return NextResponse.json({ ...jsonData }, { status: 200 });
 	} catch (error) {
 		return NextResponse.json({ message: "Something went wrong." }, { status: 400 });
 	}
