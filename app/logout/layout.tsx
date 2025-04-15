@@ -1,9 +1,10 @@
 import SEO from "@/components/SEO";
 import { Metadata } from "next";
 export const metadata: Metadata = SEO({
-	title: "Steam Sign In | levdev",
+	title: "Log Out | levdev",
 	type: "website",
-	url: "/login/steam",
+	additionalKeywords: ["logout", "sign out", "steam"],
+	url: "/logout",
 });
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
