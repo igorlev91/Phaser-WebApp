@@ -18,20 +18,20 @@ const Footer = () => {
 					<li className="footer-icon-item">
 						<Link
 							className="footer-icon-link link hover-blue"
-							href=""
+							href="https://store.steampowered.com/app/2126580/levdev/"
 						>
 							<FontAwesomeIcon icon={faSteam} />
 						</Link>
 					</li>
 					<li className="footer-icon-item">
-						<Link className="footer-icon-link link hover-blue" href="">
+						<Link className="footer-icon-link link hover-blue" href="https://discord.gg/FKWGbtZXmU">
 							<FontAwesomeIcon icon={faDiscord} />
 						</Link>
 					</li>
 					<li className="footer-icon-item">
 						<Link
 							className="footer-icon-link link hover-blue"
-							href="https://github.com/igorlev91"
+							href="https://github.com/markoleptic/levdev"
 						>
 							<FontAwesomeIcon icon={faGithub} />
 						</Link>
