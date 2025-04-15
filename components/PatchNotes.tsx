@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faCrosshairs } from "@fortawesome/free-solid-svg-icons";
-
+import "@/styles/patchnotes.scss";
 const PatchNotes = () => {
 	return (
 		<>
@@ -13,11 +13,335 @@ const PatchNotes = () => {
 						<div className="pn-version-date">
 							<Link
 								className="link hover-blue fw-semibold pn-version-number"
-								href="https://store.steampowered.com/news/app/2126580/view/3906374309649174897?utm_source=levdevwebsite&utm_medium=web"
+								href="https://store.steampowered.com/news/app/2126580/view/6181831424325133094?utm_source=levdevwebsite&utm_medium=web"
 							>
-								0.6.2
+								0.7.1
 							</Link>
-							<p className="pn-date">January 6, 2024</p>
+							<p className="pn-date">May 19, 2024</p>
+						</div>
+						<ul>
+							<p className="fs-300"></p>
+							<li>
+								<FontAwesomeIcon className="fs-300" icon={faCrosshairs} />
+								<p className="fs-300">Audio</p>
+								<ul>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>Overhauled the audio system.</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>Added footstep sounds.</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>Updated the Audio Format pop-up window</p>
+										<ul>
+											<li>
+												<FontAwesomeIcon icon={faPlay} />
+												<p>
+													Removed the Output Device option. This has been moved to the Video
+													and Sound Settings menu.
+												</p>
+											</li>
+											<li>
+												<FontAwesomeIcon icon={faPlay} />
+												<p>
+													When selecting a previously played song title, the duration
+													information is now automatically filled out.
+												</p>
+											</li>
+											<li>
+												<FontAwesomeIcon icon={faPlay} />
+												<p>
+													Small improvements to interaction with the Previously Played Song
+													Title combo box and the New Song Title text box.
+												</p>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											The volume from an audio device should be much less quiet than previously.
+										</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											The menu music now continues playing during the loading screen at a reduced
+											volume.
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<FontAwesomeIcon className="fs-300" icon={faCrosshairs} />
+								<p className="fs-300">FAQ</p>
+								<ul>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>Updated the Audio Analyzer section of the FAQ</p>
+										<ul>
+											<li>
+												<FontAwesomeIcon icon={faPlay} />
+												<p>Added information about how to use the Audio Device audio format.</p>
+											</li>
+											<li>
+												<FontAwesomeIcon icon={faPlay} />
+												<p>
+													Added information about the differences between Audio File and Audio
+													Device audio formats.
+												</p>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<FontAwesomeIcon className="fs-300" icon={faCrosshairs} />
+								<p className="fs-300">Settings</p>
+								<ul>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											Moved Video and Sound settings from a save game slot to a .ini file, which
+											is locally stored for each machine.
+										</p>
+										<ul>
+											<li>
+												<FontAwesomeIcon icon={faPlay} />
+												<p>
+													This way, you can have separate video and sound settings for
+													different computers.
+												</p>
+											</li>
+											<li>
+												<FontAwesomeIcon icon={faPlay} />
+												<p>
+													The file is located in
+													C:/Username/AppData/Local/levdev/Saved/Config/Windows/GameUserSettings.ini.
+												</p>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div className="centered-bordered-container-1000">
+					<div className="pn-container">
+						<div className="pn-version-date">
+							<Link
+								className="link hover-blue fw-semibold pn-version-number"
+								href="https://store.steampowered.com/news/app/2126580/view/4143945532190357680?utm_source=levdevwebsite&utm_medium=web"
+							>
+								0.7.0
+							</Link>
+							<p className="pn-date">February 27, 2024</p>
+						</div>
+						<ul>
+							<p className="fs-300"></p>
+							<li>
+								<FontAwesomeIcon className="fs-300" icon={faCrosshairs} />
+								<p className="fs-300">General</p>
+								<ul>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											Added a new full body skeletal mesh to the character (you can see your legs
+											now).
+										</p>
+									</li>
+
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>Added new character and weapon animations.</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>Adjusted the weapon viewmodel.</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											Added a versioning system to custom game modes to help prevent breaking
+											existing custom game modes when changes are made.
+										</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>Improved save and load performance.</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>Updated the FAQ page and increased the font size.</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<FontAwesomeIcon className="fs-300" icon={faCrosshairs} />
+								<p className="fs-300">Bug Fixes</p>
+								<ul>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											Fixed an issue where the Post Game Mode Menu was not correctly loading a
+											newly selected game mode.
+										</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											Fixed an issue where the QTable was not correctly saving in game modes with
+											reinforcement learning enabled.
+										</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											Fixed an issue where the ClusterBeat game mode at Death difficulty had
+											invalid target spacing.
+										</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											Fixed an issue where unrelated settings in the custom game mode editor could
+											change the Target Distribution setting.
+										</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											Fixed an issue where targets could spawn without activating even when Allow
+											Spawn Without Activation was false.
+										</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											The Headshot Height Only Target Distribution now functions correctly (not
+											sure when it broke tbh).
+										</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											The game mode preview in Creator View no longer frequently resizes the
+											widget frame when targets are close to the top.
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<FontAwesomeIcon className="fs-300" icon={faCrosshairs} />
+								<p className="fs-300">Game Modes</p>
+								<ul>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>Reworked Dynamic Spread</p>
+										<ul>
+											<li>
+												<FontAwesomeIcon icon={faPlay} />
+												<p>Removed the Spread Scaling and Directions to Change settings.</p>
+											</li>
+											<li>
+												<FontAwesomeIcon icon={faPlay} />
+												<p>
+													Each spread setting (Horizontal, Vertical, and Forward) now has a
+													checkbox to toggle constant or dynamic spread.
+												</p>
+												<ul>
+													<li>
+														<FontAwesomeIcon icon={faPlay} />
+														<p>
+															If unchecked, sliders for the minimum and maximum spread are
+															shown.
+														</p>
+													</li>
+												</ul>
+											</li>
+											<li>
+												<FontAwesomeIcon icon={faPlay} />
+												<p>
+													The Start Threshold, End Threshold, and Decrement Amount will
+													automatically show or hide based on the spread settings.
+												</p>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>Removed the Persistent Deactivation and Destruction conditions.</p>
+										<ul>
+											<li>
+												<FontAwesomeIcon icon={faPlay} />
+												<p>
+													These conditions will be removed from existing custom game modes
+													when the game is launched.
+												</p>
+											</li>
+											<li>
+												<FontAwesomeIcon icon={faPlay} />
+												<p>
+													Setting the Destruction condition to OnHealthReachedZero and the
+													Maximum Target Health to infinite and will mimic the Persistent
+													Destruction condition.
+												</p>
+											</li>
+											<li>
+												<FontAwesomeIcon icon={faPlay} />
+												<p>
+													If an existing custom game mode has the Persistent Destruction
+													condition as the only Destruction condition, it will be replaced
+													with OnHealthReachedZero, and Maximum Target Health set to infinite.
+												</p>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											The Headshot Height Only Target Distribution now forces the vertical spread
+											to be constant at 50 (which cannot be manually chosen).
+										</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											Custom game mode settings that are disabled or locked to a certain value
+											will now show a tooltip indicating what is causing their behavior.
+										</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>Slightly lowered the minimum allowed spread values.</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>Modified BeatGrid game modes to conform to setting changes.</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>Renamed some custom game mode setting categories.</p>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div className="centered-bordered-container-1000">
+					<div className="pn-container">
+						<div className="pn-version-date">
+							<Link
+								className="link hover-blue fw-semibold pn-version-number"
+								href="https://store.steampowered.com/news/app/2126580/view/6770665671992274327?utm_source=levdevwebsite&utm_medium=web"
+							>
+								0.6.3
+							</Link>
+							<p className="pn-date">January 16, 2024</p>
 						</div>
 						<ul>
 							<p className="fs-300"></p>
@@ -25,6 +349,49 @@ const PatchNotes = () => {
 								<FontAwesomeIcon className="fs-300" icon={faCrosshairs} />
 								<p className="fs-300">Bug Fixes</p>
 								<ul>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											Fixed an issue where multiple targets being spawned at the same time in
+											non-grid modes could spawn intersecting each other. (again...)
+										</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											Fixed an issue where the &#34;Spawn Every Other Target In Center&#34;
+											setting was not functioning properly.
+										</p>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div className="centered-bordered-container-1000">
+					<div className="pn-container">
+						<div className="pn-version-date">
+							<Link
+								className="link hover-blue fw-semibold pn-version-number"
+								href="https://store.steampowered.com/news/app/2126580/view/6770665671979434745?utm_source=levdevwebsite&utm_medium=web"
+							>
+								0.6.2
+							</Link>
+							<p className="pn-date">January 12, 2024</p>
+						</div>
+						<ul>
+							<p className="fs-300"></p>
+							<li>
+								<FontAwesomeIcon className="fs-300" icon={faCrosshairs} />
+								<p className="fs-300">Bug Fixes</p>
+								<ul>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											The &#34;Bordering&#34; Spawn Selection custom game mode option now works as
+											intended.
+										</p>
+									</li>
 									<li>
 										<FontAwesomeIcon icon={faPlay} />
 										<p>
@@ -42,7 +409,53 @@ const PatchNotes = () => {
 									<li>
 										<FontAwesomeIcon icon={faPlay} />
 										<p>
-											Fixed an issue where simultaneously spawned targets in non-grid modes could spawn intersecting each other.
+											Fixed a bug where game modes similar to BeatGrid with reinforcement learning
+											enabled could get stuck without activating any targets.
+										</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											Fixed a bug where spawning or activation could be skipped if a higher
+											priority setting failed.
+										</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											Fixed a bug causing the audio analyzer threshold settings to not allow the
+											intended selection range.
+										</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											Fixed an issue where multiple targets being spawned at the same time in
+											non-grid modes could spawn intersecting each other.
+										</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											Fixed an issue where a black screen would briefly appear during a loading
+											screen.
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<FontAwesomeIcon className="fs-300" icon={faCrosshairs} />
+								<p className="fs-300">Steam</p>
+								<ul>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>Added achievement icons for all achievements.</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											Added achievement progress notifications for game mode achievements
+											requiring greater than 5 playthroughs.
 										</p>
 									</li>
 								</ul>
@@ -54,20 +467,78 @@ const PatchNotes = () => {
 									<li>
 										<FontAwesomeIcon icon={faPlay} />
 										<p>
-											Added an option to filter by date range for all default and custom mode
-											charts.
+											Increased the maximum number of modes visible on the time played bar charts.
 										</p>
 									</li>
 									<li>
 										<FontAwesomeIcon icon={faPlay} />
 										<p>
-											Added an option to delete score entries from the database to the history
-											page.
+											Added the option to filter by date range for all default and custom mode
+											charts.
 										</p>
 									</li>
 									<li>
 										<FontAwesomeIcon icon={faPlay} />
-										<p>Changed the appearance of various elements of all charts.</p>
+										<p>Added the option to delete score entries from the history page.</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											Fixed an issue where the location accuracy heat map was not visible in the
+											in-game web browser.
+										</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											Fixed an issue where an invalid row could appear on the history page in the
+											in-game web browser.
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<FontAwesomeIcon className="fs-300" icon={faCrosshairs} />
+								<p className="fs-300">Miscellaneous</p>
+								<ul>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>Updated game mode descriptions.</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											Changed the &#34;Targets Spawned&#34; PlayerHUD stat to &#34;Targets
+											Activated&#34;.
+										</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											The feedback widget no longer clears feedback upon an unsuccessful http
+											request.
+										</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											Saving scores to the database now happens asynchronously, so unsuccessful
+											http requests should no longer cause problems.
+										</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											The game will postpone exiting to the desktop until it receives an http
+											response when saving scores from an in-progress game mode.
+										</p>
+									</li>
+									<li>
+										<FontAwesomeIcon icon={faPlay} />
+										<p>
+											The wall menu text now pulses when changing the night mode setting until the
+											time of day transition completes.
+										</p>
 									</li>
 								</ul>
 							</li>
@@ -475,7 +946,6 @@ const PatchNotes = () => {
 						</ul>
 					</div>
 				</div>
-
 				<div className="centered-bordered-container-1000">
 					<div className="pn-container">
 						<div className="pn-version-date">
