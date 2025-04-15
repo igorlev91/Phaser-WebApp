@@ -438,7 +438,7 @@ const GameplayAbilitySystem = () => {
 									baseClass="UAbilitySystemComponent"
 									childClass="UBSAbilitySystemComponent"
 									headingLevel={2}
-									childClassLink="/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/BSAbilitySystemComponent.cpp"
+									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/BSAbilitySystemComponent.cpp"
 								/>
 								<p>
 									The Ability System Component (<span className="text-light">ASC</span>) is added to
@@ -543,7 +543,7 @@ const GameplayAbilitySystem = () => {
 									baseClass="UGameplayAbility"
 									childClass="UBSGameplayAbility"
 									headingLevel={2}
-									childClassLink="/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Abilities/BSGameplayAbility.cpp"
+									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Abilities/BSGameplayAbility.cpp"
 								/>
 								<p>
 									A Gameplay Ability (<span className="text-light">GA</span>) is an action or skill
@@ -559,7 +559,7 @@ const GameplayAbilitySystem = () => {
 										baseClass="UBSGameplayAbility"
 										childClass="UBSGA_FireGun"
 										headingLevel={3}
-										childClassLink="/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Abilities/BSGA_FireGun.cpp"
+										childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Abilities/BSGA_FireGun.cpp"
 									/>
 									<p>
 										This is the ability for shooting the gun in a game mode that uses Hit-Based
@@ -575,7 +575,7 @@ const GameplayAbilitySystem = () => {
 										baseClass="UBSGameplayAbility"
 										childClass="UBSGA_TrackGun"
 										headingLevel={3}
-										childClassLink="/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Abilities/BSGA_TrackGun.cpp"
+										childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Abilities/BSGA_TrackGun.cpp"
 									/>
 									<p>
 										This is the ability for dealing damage to targets for a game mode that uses
@@ -660,7 +660,7 @@ const GameplayAbilitySystem = () => {
 											headingLevel={4}
 											compOfText="used by"
 											compOf="UBSGA_TrackGun"
-											childClassLink="/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Tasks/BSAT_TickTrace.cpp"
+											childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Tasks/BSAT_TickTrace.cpp"
 										/>
 										<p>
 											The purpose of this task is to broadcast a{" "}
@@ -684,7 +684,7 @@ const GameplayAbilitySystem = () => {
 										baseClass="UBSGameplayAbility"
 										childClass="UBSGA_AimBot"
 										headingLevel={3}
-										childClassLink="/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Abilities/BSGA_AimBot.cpp"
+										childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Abilities/BSGA_AimBot.cpp"
 									/>
 									<p>
 										Before levdev&#39;s trailer was edited, I needed footage of the game in action
@@ -699,7 +699,7 @@ const GameplayAbilitySystem = () => {
 										what{" "}
 										<Link
 											className="link text-light hover-white"
-											href="/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Player/BSCheatManager.cpp"
+											href="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Player/BSCheatManager.cpp"
 										>
 											<BSInlineFunction className={"UBSCheatManager"} />
 										</Link>{" "}
@@ -793,7 +793,7 @@ const GameplayAbilitySystem = () => {
 											baseClass="UAbilityTask"
 											childClass="UBSAT_AimToTarget"
 											headingLevel={4}
-											childClassLink="/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Tasks/BSAT_AimToTarget.cpp"
+											childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Tasks/BSAT_AimToTarget.cpp"
 										/>
 										<p>
 											The main reason I chose to use an{" "}
@@ -908,7 +908,7 @@ const GameplayAbilitySystem = () => {
 									baseClass="UAttributeSet"
 									childClass="UBSAttributeSetBase"
 									headingLevel={2}
-									childClassLink="/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Globals/BSAttributeSetBase.cpp"
+									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Globals/BSAttributeSetBase.cpp"
 								/>
 								<p className="">
 									An Attribute Set is a group of stats that an actor with an{" "}
@@ -1052,7 +1052,7 @@ const GameplayAbilitySystem = () => {
 									baseClass="UEnhancedInputComponent"
 									childClass="UBSInputComponent"
 									headingLevel={2}
-									childClassLink="/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Input/BSInputComponent.cpp"
+									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Input/BSInputComponent.cpp"
 								/>
 								<p>
 									I chose to implement this class simply because I found the{" "}
@@ -1067,7 +1067,7 @@ const GameplayAbilitySystem = () => {
 										baseClass="UDataAsset"
 										childClass="UBSInputConfig"
 										headingLevel={3}
-										childClassLink="/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Input/BSInputConfig.cpp"
+										childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Input/BSInputConfig.cpp"
 									/>
 									<p>
 										This data asset maps each <span className="text-light">Input Action</span> (
@@ -1127,7 +1127,7 @@ const GameplayAbilitySystem = () => {
 									baseClass="UDataAsset"
 									childClass="UBSAbilitySet"
 									headingLevel={2}
-									childClassLink="/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Globals/BSAbilitySet.cpp"
+									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Globals/BSAbilitySet.cpp"
 								/>
 								<p>
 									An Ability Set is a group of <span className="text-light">Gameplay Abilities</span>,{" "}
@@ -1193,7 +1193,7 @@ const GameplayAbilitySystem = () => {
 									baseClass="UGameplayEffectExecutionCalculation"
 									childClass="UBSDamageExecCalc"
 									headingLevel={2}
-									childClassLink="/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/ExecutionCalculations/BSDamageExecCalc.cpp"
+									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/ExecutionCalculations/BSDamageExecCalc.cpp"
 								/>
 								<p>
 									Instead of just &#34;Apply 100 damage by removing 100 health points&#34;, a{" "}
@@ -1210,7 +1210,7 @@ const GameplayAbilitySystem = () => {
 									baseClass="UActorComponent"
 									childClass="UBSHealthComponent"
 									headingLevel={2}
-									childClassLink="/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Character/BSHealthComponent.cpp"
+									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Character/BSHealthComponent.cpp"
 								/>
 								<p>
 									This component is added to any actors where keeping track of their health is

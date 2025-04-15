@@ -552,7 +552,7 @@ const TargetSpawningSystem = () => {
 									baseClass="UObject"
 									childClass="USpawnArea"
 									headingLevel={2}
-									childClassLink=""
+									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Public/Target/SpawnAreaManagerComponent.h"
 								/>
 								<p>
 									Target spawn locations are chosen from a 2-D rectangle that I&#39;ll be referring to
@@ -591,7 +591,7 @@ const TargetSpawningSystem = () => {
 									baseClass="AActor"
 									childClass="ATargetManager"
 									headingLevel={2}
-									childClassLink=""
+									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Target/TargetManager.cpp"
 								/>
 								<p>
 									The Target Manager spawns and holds references to targets. It is responsible for
@@ -646,7 +646,7 @@ const TargetSpawningSystem = () => {
 										childClass="UReinforcementLearningComponent"
 										compOf="ATargetManager"
 										headingLevel={3}
-										childClassLink="/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Target/ReinforcementLearningComponent.cpp"
+										childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Target/ReinforcementLearningComponent.cpp"
 									/>
 									<p>
 										The Reinforcement Learning Component (RL Component) is an opt-in option
@@ -677,7 +677,7 @@ const TargetSpawningSystem = () => {
 										childClass="USpawnAreaManagerComponent"
 										compOf="ATargetManager"
 										headingLevel={3}
-										childClassLink="/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Target/SpawnAreaManagerComponent.cpp"
+										childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Target/SpawnAreaManagerComponent.cpp"
 									/>
 									<p>
 										The SpawnArea Manager Component creates and manages all the SpawnArea objects.
@@ -702,7 +702,7 @@ const TargetSpawningSystem = () => {
 									compOf="ATargetManager"
 									compOfText="spawned by"
 									headingLevel={2}
-									childClassLink="/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Target/Target.cpp"
+									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Target/Target.cpp"
 								/>
 								<p>
 									While the Target Manager is responsible for target activation, the target itself is
@@ -759,7 +759,7 @@ const TargetSpawningSystem = () => {
 										childClass="UBSAbilitySystemComponent"
 										compOf="ATarget"
 										headingLevel={3}
-										childClassLink=""
+										childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/BSAbilitySystemComponent.cpp"
 									/>
 									<p>
 										It might&#39;ve been overkill to use this for each target, but it works well
@@ -787,7 +787,7 @@ const TargetSpawningSystem = () => {
 										childClass="UBSHealthComponent"
 										compOf="ATarget"
 										headingLevel={3}
-										childClassLink="/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Character/BSHealthComponent.cpp"
+										childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Character/BSHealthComponent.cpp"
 									/>
 									<p>
 										The health component is initialized with ability system component so that it can
@@ -827,7 +827,7 @@ const TargetSpawningSystem = () => {
 									baseClass="AGameMode"
 									childClass="ABSGameMode"
 									headingLevel={2}
-									childClassLink=""
+									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/BSGameMode.cpp"
 								/>
 								<p>
 									The game mode spawns and intializes new Target Manager each time a game mode is
