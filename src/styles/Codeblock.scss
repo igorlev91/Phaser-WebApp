@@ -48,7 +48,7 @@
 }
 .inline-code-header {
 	font-family: var(--ff-code);
-	color: $clr-levdev-lightblue;
+	color: $clr-class;
 	overflow-wrap: break-word;
 	white-space: normal !important;
 	align-self: center;
@@ -59,7 +59,7 @@
 .inline-code {
 	display: inline;
 	word-wrap: break-word !important;
-	font-size: $fs-200;
+	font-size: inherit;
 	text-align: left;
 	line-height: 100%;
 	font-family: var(--ff-code);
@@ -78,7 +78,8 @@
 	border-radius: 3px 0px 0px 3px;
 	padding-right: 0em;
 }
-.inline-code.function {
+.inline-code.function,
+.inline-code.enum {
 	border-radius: 0px 3px 3px 0px;
 	padding-left: 0em;
 }
@@ -88,11 +89,14 @@
 .link-inline-code-block-header:hover {
 	color: $clr-white;
 }
+.class-color {
+	color: $clr-class;
+}
 .enum-color {
-	color: rgb(241, 250, 140);
+	color: $clr-enum;
 }
 .function-color {
-	color: rgb(80, 250, 123);
+	color: $clr-function;
 }
 .scope-res-operator-color {
 	color: $clr-white;

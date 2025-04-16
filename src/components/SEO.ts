@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import type { OpenGraphType } from "next/dist/lib/metadata/types/opengraph-types";
 
 export type SEOInterface = {
-	title?: string | undefined;
+	title?: string;
 	ogTwitterTitle?: string | undefined;
 	type: OpenGraphType | undefined;
 	description?: string | undefined;
@@ -30,7 +30,7 @@ export default function SEO(params: SEOInterface): Metadata {
 	type = type || "website";
 	description = description || "web-3 shooter";
 	twitterCard = twitterCard || "summary";
-	let keywords = ["game"];
+	let keywords = ["unreal"];
 	if (clearDefaultKeywords) {
 		keywords = [];
 	}
