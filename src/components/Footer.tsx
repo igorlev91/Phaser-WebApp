@@ -1,4 +1,4 @@
-import logo from "@/public/logo.ico";
+import logo from "public/logo.ico";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faSteam, faGithub } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
@@ -13,7 +13,7 @@ const Footer = () => {
 				<div className="footer-brand-container">
 					<Image className="footer-logo" src={logo} alt="logo" />
 					<h2 className="footer-logo-text">levdev</h2>
-					<p className="footer-description-text">web-3 shooter</p>
+					<p className="footer-description-text">the rhythm-based aim trainer</p>
 				</div>
 				<ul className="footer-icon-list">
 					<li className="footer-icon-item">
