@@ -1,19 +1,33 @@
-import SEO from "@/components/SEO";
 import { Metadata } from "next";
 
+import blogPostData from "@/components/blog/TargetSpawningSystemDataPart2";
+import SEO from "@/components/SEO";
+
 export const metadata: Metadata = SEO({
-	title: "levdev's Target Spawning System: Part 2 | Developer Blog",
-	ogTwitterTitle: "levdev's Target Spawning System: Part 2 - Target Lifecycle Timeline",
-	description:
-		"In this second part of the series, I'll explain how the core systems from Part 1 work together. " +
-		"I walk through the lifecycle of targets, outlining the key functions and their roles. I also discuss " +
-		"some challenging problems I encountered and how I solved them.",
+	title: blogPostData.titleShort,
+	ogTwitterTitle: blogPostData.titleLong,
+	description: blogPostData.description,
 	type: "article",
 	url: "/devblog/target-spawning-system-part-2",
 	twitterCard: "summary_large_image",
 	additionalKeywords: [
+		"aim-training",
+		"aim training",
+		"target lifecycle",
+		"target spawning system",
+		"target management system",
 		"game",
-		"unreal"
+		"unreal",
+		"engine",
+		"ue",
+		"c++",
+		"component",
+		"actor",
+		"object",
+		"delegate",
+		"spatial grid",
+		"damage event",
+		"debug",
 	],
 });
 

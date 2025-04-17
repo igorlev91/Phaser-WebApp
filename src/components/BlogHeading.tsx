@@ -1,7 +1,10 @@
 "use client";
 import React from "react";
-import { BSInlineCodeBlock, BSInlineCodeBlockHeader } from "@/components/CodeBlock";
+
 import Link from "next/link";
+
+import { BSInlineCode } from "@/components/CodeBlock";
+
 import "@/styles/Codeblock.scss";
 
 const getBaseClassText = (baseClass: string, headingLevel: number) => {
@@ -22,7 +25,7 @@ const getBaseClassText = (baseClass: string, headingLevel: number) => {
 		<>
 			<h4 className="align-self-center fs-100"> inherits from </h4>
 			<h4 className={"inline-code-header " + fontSize}>
-				<BSInlineCodeBlock code={baseClass} padding={"0 0.1em"} language={"c"} showLineNumbers={false} />
+				<BSInlineCode>{baseClass}</BSInlineCode>
 			</h4>
 		</>
 	);
@@ -47,7 +50,7 @@ const getComponentOfText = (compOf: string, compOfText: string, headingLevel: nu
 			<h4 className="align-self-center fs-400"> | </h4>
 			<h4 className="align-self-center fs-100">{compOfText}</h4>
 			<h4 className={"inline-code-header " + fontSize}>
-				<BSInlineCodeBlock code={compOf} padding={"0 0.1em"} language={"c"} showLineNumbers={false} />
+				<BSInlineCode>{compOf}</BSInlineCode>
 			</h4>
 		</>
 	);
@@ -58,7 +61,7 @@ const getChildClassText = (
 	childClass: string,
 	childClassLink: string,
 	childClassColor: string
-) => {
+): React.JSX.Element => {
 	if (headingLevel === 0) {
 		return <></>;
 	}
@@ -92,25 +95,11 @@ const getChildClassText = (
 
 const getCodeBlock = (childClass: string, childClassLink: string, childClassColor: string) => {
 	if (childClassLink.length === 0) {
-		return (
-			<BSInlineCodeBlockHeader
-				color={childClassColor}
-				code={childClass}
-				padding={"0 0.1em"}
-				language={"c"}
-				showLineNumbers={false}
-			/>
-		);
+		return <BSInlineCode>{childClass}</BSInlineCode>;
 	}
 	return (
 		<Link className="link-inline-code-block-header" href={childClassLink}>
-			<BSInlineCodeBlockHeader
-				color={childClassColor}
-				code={childClass}
-				padding={"0 0.1em"}
-				language={"c"}
-				showLineNumbers={false}
-			/>
+			<BSInlineCode link={true}>{childClass}</BSInlineCode>
 		</Link>
 	);
 };
@@ -177,7 +166,7 @@ const getHeadingText = (headingText: string, headingLevel: number, color: string
 	}
 };
 
-const BlogHeading = ({ headingText, headingLevel, color = "text-light" }: BlogHeadingProps) => {
+const BlogHeading = ({ headingText, headingLevel, color = "text-light" }: BlogHeadingProps): React.JSX.Element => {
 	return (
 		<div className="article-heading">
 			<span className="line-top" />

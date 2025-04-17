@@ -1,20 +1,20 @@
-import SEO from "@/components/SEO";
 import { Metadata } from "next";
 
+import blogPostData from "@/components/blog/TargetSpawningSystemData";
+import SEO from "@/components/SEO";
+
 export const metadata: Metadata = SEO({
-	title: "levdev's Target Spawning System: Part 1 | Developer Blog",
-	ogTwitterTitle: "levdev's Target Spawning System: Part 1 - Core Classes, State, and Conventions", // Building the Core System
-	description:
-		"In this first part of the series, I introduce the foundation used to build the Target Spawning System in " +
-		"levdev. You’ll learn about the classes, state management systems, and some of the conventions used to " +
-		"make the game function smoothly, alongside insights into the decision-making process that guided their " +
-		"selection and implementation.",
+	title: blogPostData.titleShort,
+	ogTwitterTitle: blogPostData.titleLong,
+	description: blogPostData.description,
 	type: "article",
 	url: "/devblog/target-spawning-system",
 	twitterCard: "summary_large_image",
 	additionalKeywords: [
 		"aim-training",
 		"aim training",
+		"target spawning system",
+		"target management system",
 		"game",
 		"unreal",
 		"engine",
@@ -24,10 +24,8 @@ export const metadata: Metadata = SEO({
 		"actor",
 		"object",
 		"delegate",
-		"ability system component",
-		"gameplay ability system",
-		"attribute",
-		"spawning",
+		"reinforcement learning",
+		"state",
 		"debug",
 	],
 });

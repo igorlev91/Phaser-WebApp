@@ -1,93 +1,88 @@
 "use client";
-import image_TargetSpawningSystem_teaser from "public/TargetSpawningSystem-teaser.png";
-import image_Hero from "public/GAS_Diagram.png";
-import Link from "next/link";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
+
 import React from "react";
+
+import Image from "next/image";
+import Link from "next/link";
+
+import gameplayAbilitySystemBlogPostData from "@/components/blog/GameplayAbilitySystemData";
+import SpawningWithoutBlogPostData from "@/components/blog/SpawningWithoutIntersectionData";
+import targetSpawningSystemBlogPostData from "@/components/blog/TargetSpawningSystemData";
+import targetSpawningSystemPart2BlogPostData from "@/components/blog/TargetSpawningSystemDataPart2";
+
 import "@/styles/Card.scss";
 import "@/styles/Hero.scss";
+
 const BlogPostsMain = () => {
-	let router = useRouter();
-
-	const handleClick = async (_event: React.MouseEvent<HTMLDivElement, MouseEvent>, path: string) => {
-		router.push(path);
-	};
-
 	return (
-		<>
-			<div className="flex-container-column">
-				<div className="hero-container">
-					<div className="hero">
-						<h1>levdev Developer Blog</h1>
-					</div>
-				</div>
-				<div className="flex-container-row padding-1rem gap-1rem flex-wrap">
-					<div className="card-container gap-1rem padding-1rem">
-						<Link className="link" href="/devblog/target-spawning-system">
-							<div className="card">
-								<p className="sub-heading">
-									Article
-									<time dateTime="2023-07-02">July 2, 2023 </time>
-								</p>
-								<Image src={image_TargetSpawningSystem_teaser} alt="TargetSpawningSystem-teaser" />
-								<div className="card-label">
-									levdev&#39;s Target Spawning System: Part 1 - Core Classes, State, and Conventions
-								</div>
-								<p className="card-sub-label">
-									In this first part of the series, I introduce the foundation used to build the
-									Target Spawning System in levdev. You&#39;ll learn about the classes, state
-									management systems, and some of the conventions used to make the game function
-									smoothly, alongside insights into the decision-making process that guided their
-									selection and implementation.
-								</p>
-							</div>
-						</Link>
-					</div>
-					<div
-						className="card-container gap-1rem padding-1rem"
-						onClick={(event) => handleClick(event, `/devblog/gameplay-ability-system-overview`)}
-					>
-						<Link className="link" href="/devblog/target-spawning-system">
-							<div className="card">
-								<p className="sub-heading">
-									Article
-									<time dateTime="2023-09-10">September 15, 2023 </time>
-								</p>
-								<Image src={image_Hero} alt="TargetSpawningSystem-teaser" />
-								<div className="card-label">
-									An Overview of Unreal&#39;s Gameplay Ability System in levdev
-								</div>
-								<p className="card-sub-label">
-									How is the Gameplay Ability System used in levdev? This article shows the
-									implementation and walks through the execution of a common ability.
-								</p>
-							</div>
-						</Link>
-					</div>
-					<div className="card-container gap-1rem padding-1rem">
-						<Link className="link" href="/devblog/target-spawning-system-part-2">
-							<div className="card">
-								<p className="sub-heading">
-									Article
-									<time dateTime="2023-07-02">July 2, 2023 </time>
-								</p>
-								<Image src={image_TargetSpawningSystem_teaser} alt="TargetSpawningSystem-teaser" />
-								<div className="card-label">
-									levdev&#39;s Target Spawning System: Part 2 - Target Lifecycle Timeline
-								</div>
-								<p className="card-sub-label">
-									In this second part of the series, I&#39;ll explain how the core systems from Part 1
-									work together. I walk through the lifecycle of targets, outlining the key functions
-									and their roles. I also discuss some challenging problems I encountered and how I
-									solved them.
-								</p>
-							</div>
-						</Link>
-					</div>
+		<div className="flex-container-column">
+			<div className="hero-container">
+				<div className="hero">
+					<h1>levdev Developer Blog</h1>
 				</div>
 			</div>
-		</>
+			<div className="flex-container-row padding-1rem gap-1rem flex-wrap">
+				<Link className="card-container" href="/devblog/spawning-without-intersection">
+					<div className="card">
+						<p className="sub-heading">
+							Article
+							<time dateTime={SpawningWithoutBlogPostData.postDate.toHTTP() as string}>
+								{SpawningWithoutBlogPostData.postDate.toFormat("DD")}{" "}
+							</time>
+						</p>
+						<Image src={SpawningWithoutBlogPostData.cardImage} alt="Spawning-without-intersection-teaser" />
+						<div className="card-label">{SpawningWithoutBlogPostData.titleLong}</div>
+						<div className="flex-container" />
+						<p className="card-sub-label">{SpawningWithoutBlogPostData.description}</p>
+					</div>
+				</Link>
+				<Link className="card-container" href="/devblog/target-spawning-system-part-2">
+					<div className="card">
+						<p className="sub-heading">
+							Article
+							<time dateTime={targetSpawningSystemPart2BlogPostData.postDate.toHTTP() as string}>
+								{targetSpawningSystemPart2BlogPostData.postDate.toFormat("DD")}
+							</time>
+						</p>
+						<Image
+							src={targetSpawningSystemPart2BlogPostData.cardImage}
+							alt="TargetSpawningSystem-teaser"
+						/>
+						<div className="card-label">{targetSpawningSystemPart2BlogPostData.titleLong}</div>
+						<div className="flex-container" />
+						<p className="card-sub-label">{targetSpawningSystemPart2BlogPostData.description}</p>
+					</div>
+				</Link>
+				<Link className="card-container" href="/devblog/gameplay-ability-system-overview">
+					<div className="card">
+						<p className="sub-heading">
+							Article
+							<time dateTime={gameplayAbilitySystemBlogPostData.postDate.toHTTP() as string}>
+								{gameplayAbilitySystemBlogPostData.postDate.toFormat("DD")}
+							</time>
+						</p>
+						<Image src={gameplayAbilitySystemBlogPostData.cardImage} alt="TargetSpawningSystem-teaser" />
+						<div className="card-label">{gameplayAbilitySystemBlogPostData.titleLong}</div>
+						<div className="flex-container" />
+						<p className="card-sub-label">{gameplayAbilitySystemBlogPostData.description}</p>
+					</div>
+				</Link>
+				<Link className="card-container" href="/devblog/target-spawning-system">
+					<div className="card">
+						<p className="sub-heading">
+							Article
+							<time dateTime={targetSpawningSystemBlogPostData.postDate.toHTTP() as string}>
+								{targetSpawningSystemBlogPostData.postDate.toFormat("DD")}
+							</time>
+						</p>
+						<Image src={targetSpawningSystemBlogPostData.cardImage} alt="TargetSpawningSystem-teaser" />
+						<div className="card-label">{targetSpawningSystemBlogPostData.titleLong}</div>
+						<div className="flex-container" />
+						<p className="card-sub-label">{targetSpawningSystemBlogPostData.description}</p>
+					</div>
+				</Link>
+			</div>
+		</div>
 	);
 };
 

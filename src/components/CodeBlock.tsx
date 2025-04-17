@@ -1,21 +1,14 @@
-import React from "react";
-import { CodeBlock } from "react-code-blocks";
+import React, { HTMLAttributes } from "react";
+
 import "@/styles/Codeblock.scss";
+
+import { CodeBlock } from "react-code-blocks";
 
 const codeBlockStyle = {
 	overflowX: "scroll",
 	overflowY: "scroll",
 	lineHeight: "inherit",
-	width: "100%",
-};
-
-const inlineCodeBlockStyle = {
-	display: "inline",
-	fontSize: "inherit",
-	fontFamily: "inherit",
-	padding: "0px",
-	lineHeight: "inherit",
-	whiteSpace: "normal",
+	//width: "100%",
 };
 
 const codeContainerStyle = {
@@ -26,7 +19,6 @@ const codeContainerStyle = {
 };
 
 const customStyle = {
-	flexshrink: "1",
 	display: "flex",
 	overflowX: "scroll",
 	fontFamily: "inherit",
@@ -34,10 +26,10 @@ const customStyle = {
 	borderRadius: "0.25rem",
 	fontSize: "inherit",
 	lineHeight: "inherit",
-	width: "100%",
+	//width: "100%",
 };
 
-type BSCodeBlockProps = {
+type BSCodeBlockProps = HTMLAttributes<HTMLElement> & {
 	children?: string;
 	fontSize?: string;
 };
@@ -81,13 +73,13 @@ const theme = {
 	numberColor: `#bd93f9`,
 };
 
-export const BSCodeBlock: React.FC<BSCodeBlockProps> = ({ children, fontSize = "0.65rem" }) => {
+const BSCodeBlock = ({ children, fontSize = "0.65rem", ...rest }: BSCodeBlockProps): React.JSX.Element => {
 	customStyle.fontSize = fontSize;
 	customStyle.lineHeight = "inherit";
 	codeBlockStyle.lineHeight = "inherit";
 	codeContainerStyle.lineHeight = "inherit";
 	return (
-		<div className="code-border-container">
+		<div className="code-border-container" {...rest}>
 			<div className="code-border">
 				<div className="codeblock-container">
 					<CodeBlock
@@ -106,97 +98,30 @@ export const BSCodeBlock: React.FC<BSCodeBlockProps> = ({ children, fontSize = "
 	);
 };
 
-type BSInlineCodeBlockProps = {
-	code?: string;
-	language?: string;
-	showLineNumbers?: boolean;
-	fontSize?: string;
-	lineHeight?: string;
-	padding?: string;
-	color?: string;
-};
-
-export const BSInlineCodeBlock: React.FC<BSInlineCodeBlockProps> = ({
-	code,
-	language = "c",
-	showLineNumbers = false,
-	fontSize = "inherit",
-	lineHeight = "inherit",
-	padding = "0rem",
-	color = "inherit",
-}) => {
-	inlineCodeBlockStyle.lineHeight = lineHeight;
-	return (
-		<CodeBlock
-			text={code}
-			language={language}
-			showLineNumbers={showLineNumbers}
-			theme={theme}
-			codeBlockStyle={inlineCodeBlockStyle}
-			codeContainerStyle={inlineCodeBlockStyle}
-			customStyle={{
-				display: "inline",
-				overflowY: "clip",
-				overflowWrap: "anywhere",
-				fontSize: fontSize,
-				lineHeight: lineHeight,
-				padding: padding,
-				color: color,
-			}}
-			wrapLongLines={false}
-		/>
-	);
-};
-
-export const BSInlineCodeBlockHeader: React.FC<BSInlineCodeBlockProps> = ({
-	code,
-	language = "c",
-	showLineNumbers = false,
-	fontSize = "inherit",
-	lineHeight = "inherit",
-	padding = "0 0.1em",
-	color = "inherit",
-}) => {
-	inlineCodeBlockStyle.lineHeight = lineHeight;
-	return (
-		<CodeBlock
-			text={code}
-			language={language}
-			showLineNumbers={showLineNumbers}
-			theme={theme}
-			codeBlockStyle={inlineCodeBlockStyle}
-			codeContainerStyle={inlineCodeBlockStyle}
-			customStyle={{
-				display: "flex",
-				overflowY: "clip",
-				overflowWrap: "anywhere",
-				fontSize: fontSize,
-				lineHeight: lineHeight,
-				padding: padding,
-				color: color,
-			}}
-			wrapLongLines={false}
-		/>
-	);
-};
-
 export enum InlineCodeType {
+	Any,
 	Function,
 	Enum,
 }
 
 type BSInlineCodeProps = {
 	children?: string;
-	fontSize?: string;
-	inlineCodeType: InlineCodeType;
+	inlineCodeType?: InlineCodeType;
+	link?: boolean;
 };
 
-export const BSInlineCode: React.FC<BSInlineCodeProps> = ({ children, inlineCodeType, fontSize = "0.65rem" }) => {
+const BSInlineCode = ({
+	children,
+	inlineCodeType = InlineCodeType.Any,
+	link = false,
+}: BSInlineCodeProps): React.JSX.Element => {
 	if (!children) {
 		return <span className="inline-code">{children}</span>;
 	}
 
 	const parts = children.split("::");
+
+	const linkStyleName = link ? " hover-white" : "";
 
 	if (parts.length === 2) {
 		const [className, inlineCodeTypeName] = parts;
@@ -207,31 +132,37 @@ export const BSInlineCode: React.FC<BSInlineCodeProps> = ({ children, inlineCode
 		if (className && inlineCodeTypeName) {
 			return (
 				<>
-					<span className={`inline-code class class-color`}>{className}</span>
+					<span className={`inline-code class class-color${linkStyleName}`}>{className}</span>
 					<span className={`inline-code separator scope-res-operator-color`}>{"::"}</span>
-					<span className={`inline-code ${inlineCodeTypeStyleName} ${inlineCodeTypeColorStyleName}`}>
+					<span
+						className={`inline-code ${inlineCodeTypeStyleName} ${inlineCodeTypeColorStyleName}${linkStyleName}`}
+					>
 						{inlineCodeTypeName}
 					</span>
 				</>
 			);
 		} else if (className && !inlineCodeTypeName) {
-			return <span className="inline-code class-color">{className}</span>;
+			return <span className={`inline-code class-color${linkStyleName}`}>{className}</span>;
 		} else if (!className && inlineCodeTypeName) {
 			return (
-				<span className={`inline-code ${inlineCodeTypeStyleName} ${inlineCodeTypeColorStyleName}`}>
+				<span
+					className={`inline-code ${inlineCodeTypeStyleName} ${inlineCodeTypeColorStyleName}${linkStyleName}`}
+				>
 					{inlineCodeTypeName}
 				</span>
 			);
 		}
 	}
 
-	return <span className="inline-code class-color">{children}</span>;
+	return <span className={`inline-code class-color${linkStyleName}`}>{children}</span>;
 };
 
-export const BSInlineFunction: React.FC<{ children?: string }> = ({ children }) => {
+const BSInlineFunction = ({ children }: BSCodeBlockProps): React.JSX.Element => {
 	return <BSInlineCode inlineCodeType={InlineCodeType.Function}>{children}</BSInlineCode>;
 };
 
-export const BSInlineEnum: React.FC<{ children?: string }> = ({ children }) => {
+const BSInlineEnum = ({ children }: BSCodeBlockProps): React.JSX.Element => {
 	return <BSInlineCode inlineCodeType={InlineCodeType.Enum}>{children}</BSInlineCode>;
 };
+
+export { BSCodeBlock, BSInlineCode, BSInlineFunction, BSInlineEnum };

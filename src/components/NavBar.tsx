@@ -1,17 +1,22 @@
 "use client";
-import { NavLink } from "@/components/Navlink";
-import Link from "next/link";
-import logo from "public/logo.ico";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect, useRef, useState } from "react";
-import { useAuthContext } from "@/context/AuthContext";
+
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
+import Link from "next/link";
+
+import NavLink from "@/components/NavLink";
+import { useAuthContext } from "@/context/AuthContext";
+
 import "@/styles/NavBar.scss";
 
-const NavBar = () => {
+import logo from "public/logo.ico";
+
+const NavBar = (): React.JSX.Element => {
 	const [visible, setVisibility] = useState(false);
 	const visibleRef = useRef(visible);
+	const headerRef = useRef<HTMLElement>(null);
 	const { auth } = useAuthContext();
 	const [profileStateText, setProfileStateText] = useState<string>("Login");
 	const [profileStatePath, setProfileStatePath] = useState<string>("/login");
@@ -19,29 +24,26 @@ const NavBar = () => {
 	const headerHeight = useRef(60);
 
 	const handleScroll = () => {
-		if (window.innerWidth < 640) {
-			const header = document.querySelector<HTMLElement>(".header-container");
-			if (header) {
-				let currentScroll = window.scrollY || document.documentElement.scrollTop;
-				if (currentScroll > lastScrollTop.current) {
-					// User is scrolling down
-					headerHeight.current -= currentScroll - lastScrollTop.current;
-					if (headerHeight.current < 0) {
-						headerHeight.current = 0;
-					}
-					if (visibleRef.current === true) {
-						setVisibility(false);
-					}
-				} else {
-					// User is scrolling up
-					headerHeight.current += lastScrollTop.current - currentScroll;
-					if (headerHeight.current > 60) {
-						headerHeight.current = 60;
-					}
+		if (headerRef.current) {
+			const currentScroll = window.scrollY || document.documentElement.scrollTop;
+			if (currentScroll > lastScrollTop.current) {
+				// User is scrolling down
+				headerHeight.current -= currentScroll - lastScrollTop.current;
+				if (headerHeight.current < 0) {
+					headerHeight.current = 0;
 				}
-				header.style.top = `-${60 - headerHeight.current}px`;
-				lastScrollTop.current = currentScroll <= 0 ? 0 : currentScroll;
+				if (visibleRef.current === true) {
+					setVisibility(false);
+				}
+			} else {
+				// User is scrolling up
+				headerHeight.current += lastScrollTop.current - currentScroll;
+				if (headerHeight.current > 60) {
+					headerHeight.current = 60;
+				}
 			}
+			headerRef.current.style.top = `-${60 - headerHeight.current}px`;
+			lastScrollTop.current = currentScroll <= 0 ? 0 : currentScroll;
 		}
 	};
 
@@ -63,8 +65,8 @@ const NavBar = () => {
 	}, [auth]);
 
 	return (
-		<div className="header-container">
-			<header>
+		<header ref={headerRef}>
+			<div className="header-container">
 				<Link className="link" href="/" onClick={() => setVisibility(false)}>
 					<Image className="header-logo" src={logo} alt="logo" />
 				</Link>
@@ -118,8 +120,8 @@ const NavBar = () => {
 						</li>
 					</ul>
 				</nav>
-			</header>
-		</div>
+			</div>
+		</header>
 	);
 };
 
