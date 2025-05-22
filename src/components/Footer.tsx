@@ -15,7 +15,7 @@ const Footer = (): React.JSX.Element => {
 			<footer>
 				<div className="footer-brand-container">
 					<Image className="footer-logo" src={logo} alt="logo" />
-					<h2 className="footer-logo-text">levdev</h2>
+					<h2 className="footer-logo-text">Phaser</h2>
 					<p className="footer-description-text">web-3 shooter</p>
 				</div>
 				<ul className="footer-icon-list">

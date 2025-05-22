@@ -145,7 +145,7 @@ const SpawningTargetsWithoutIntersection = () => {
 						{sideBar}
 						<article className="devblog-article flex-container-column" id="article">
 							<p>
-								One of the most challenging aspects of creating levdev was coming up with a way to
+								One of the most challenging aspects of creating Phaser was coming up with a way to
 								pseudo-randomly spawn targets without intersecting other targets. This by itself seems
 								easy, but when targets can spawn with varying sizes and can move, it quickly becomes
 								complicated.
@@ -389,7 +389,7 @@ const SpawningTargetsWithoutIntersection = () => {
 									</p>
 									<p>
 										Inside <BSInlineFunction>::GetTests</BSInlineFunction>, a data asset is loaded
-										containing different levdev game modes to test. Each game mode name is added
+										containing different Phaser game modes to test. Each game mode name is added
 										as a test name and command. The game mode name and configuration are added to a
 										map that is iterating through during{" "}
 										<BSInlineFunction>::RunTest</BSInlineFunction>.
@@ -459,7 +459,7 @@ const SpawningTargetsWithoutIntersection = () => {
 												<div className="codeblock-container">
 													<span className="inline-code-bash">
 														<span className="text-lightgrey">{`U:/EpicGames/UE_5.4_Source_Installed/Engine/Binaries/Win64/UnrealEditor.exe `}</span>
-														<span className="text-green">{`C:/P4-Workspaces/mark_levdev/levdev/levdev.uproject `}</span>
+														<span className="text-green">{`C:/P4-Workspaces/mark_Phaser/Phaser/Phaser.uproject `}</span>
 														<span className="text-yellow">{`-nullrhi -nosplash -stdout -unattended -nopause -nosound -log -ExecCmds`}</span>
 														<span className="text-red">{`=`}</span>
 														<span className="text-green">{`Automation RunTest TargetManager.TargetCollision; Quit`}</span>

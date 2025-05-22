@@ -1,7 +1,7 @@
 import SEO from "@/components/SEO";
 import { Metadata } from "next";
 export const metadata: Metadata = SEO({
-	title: "Change Password | levdev",
+	title: "Change Password | Phaser",
 	type: "website",
 	url: "/recover",
 });

@@ -3,8 +3,8 @@ import { DateTime } from "luxon";
 
 import image_Card from "public/targetSpawningSystem/Part2Card.jpg";
 
-const titleShort = "levdev's Target Spawning System: Part 2 | Developer Blog";
-const titleLong = "levdev's Target Spawning System: Part 2 - Target Lifecycle";
+const titleShort = "Phaser's Target Spawning System: Part 2 | Developer Blog";
+const titleLong = "Phaser's Target Spawning System: Part 2 - Target Lifecycle";
 const description =
 	"Discover how the classes and conventions introduced in Part 1 work together, as key functions and their roles are outlined throughout the target lifecycle.";
 const postDate: DateTime = DateTime.fromFormat("July 21, 2024", "DDD");

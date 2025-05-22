@@ -184,7 +184,7 @@ const TargetSpawningSystemPart2 = () => {
 						<div className="article-section" ref={Ref_Spawning} id="target-lifecycle-Spawning">
 							<BlogHeading headingText="Spawning" headingLevel={1} />
 							<ul>
-								<p>There are two spawning methods in levdev:</p>
+								<p>There are two spawning methods in Phaser:</p>
 								<li>
 									<FontAwesomeIcon icon={faCrosshairs} className="li-icon" />
 									<BSInlineEnum>::UpfrontOnly</BSInlineEnum>: Spawns all targets inside{" "}
@@ -788,7 +788,7 @@ const TargetSpawningSystemPart2 = () => {
 								destruction highlights the complexity of creating a target management system for an
 								aim-training game. The detailed breakdown of each step in the target lifecycle helps
 								provide a deeper understanding of the game&#39;s mechanics. Whether you&#39;re a player
-								or a developer, I hope you appreciate the design choices that went into levdev&#39;s
+								or a developer, I hope you appreciate the design choices that went into Phaser&#39;s
 								target spawning system.
 							</p>
 						</div>

@@ -118,7 +118,7 @@ export async function authenticateUserTicket(authTicket: string) {
 			: process.env.STEAM_AUTH_USER_TICKET_URL_development;
 	return new Promise<SteamAuthTicketResponse | SteamAuthTicketResponseError>(async (resolve, reject) => {
 		const response = await fetch(
-			`${authUserTicketURL}/?key=${process.env.STEAM_API_KEY}&appid=${process.env.levdev_APPID}&ticket=${authTicket}&identity=${process.env.STEAM_AUTH_TICKET_PCH_IDENTITY}`
+			`${authUserTicketURL}/?key=${process.env.STEAM_API_KEY}&appid=${process.env.Phaser_APPID}&ticket=${authTicket}&identity=${process.env.STEAM_AUTH_TICKET_PCH_IDENTITY}`
 		);
 		if (!response)
 			reject({
@@ -184,9 +184,9 @@ export async function sendRecoveryEmail(user: users, emailToken: string) {
 		SES: { ses, aws },
 	});
 	const sendMessageInfo = await transporter.sendMail({
-		from: "levdev Support <support@levdev.gg>",
+		from: "Phaser Support <support@Phaser.gg>",
 		to: `${user.email}`,
-		subject: "levdev - Password Change",
+		subject: "Phaser - Password Change",
 		html: `Hello ${user.displayName},
         <br/>
         <br/>
@@ -195,7 +195,7 @@ export async function sendRecoveryEmail(user: users, emailToken: string) {
         <br/>
         Happy Shootin,
         <br/> 
-        levdev Support`,
+        Phaser Support`,
 	});
 	return sendMessageInfo;
 }
@@ -214,10 +214,10 @@ export async function sendConfEmail(user: users, emailToken: string) {
 		SES: { ses, aws },
 	});
 	const sendMessageInfo = await transporter.sendMail({
-		from: "levdev Support <support@levdev.gg>",
+		from: "Phaser Support <support@Phaser.gg>",
 		to: `${user.email}`,
-		subject: "levdev - Email Confirmation",
-		html: `Thanks for creating an account with levdev, ${user.displayName}!
+		subject: "Phaser - Email Confirmation",
+		html: `Thanks for creating an account with Phaser, ${user.displayName}!
       <br/>
       <br/>
       Please click <a href=${hostUrl}/confirmation/${emailToken}>here</a> to confirm your email. This link expires in 24 hours.
@@ -225,7 +225,7 @@ export async function sendConfEmail(user: users, emailToken: string) {
       <br/>
       Happy Shootin,
       <br/> 
-      levdev Support`,
+      Phaser Support`,
 	});
 	return sendMessageInfo;
 }
@@ -243,8 +243,8 @@ export async function sendFeedbackEmail(title: string, content: string) {
 		SES: { ses, aws },
 	});
 	const sendMessageInfo = await transporter.sendMail({
-		from: "levdev Support <support@levdev.gg>",
-		to: "support@levdev.gg",
+		from: "Phaser Support <support@Phaser.gg>",
+		to: "support@Phaser.gg",
 		subject: `Feedback: ${title}`,
 		html: `${content}`,
 	});

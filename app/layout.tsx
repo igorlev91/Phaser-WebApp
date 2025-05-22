@@ -9,7 +9,7 @@ import "@/styles/Global.scss";
 import "@/styles/Utility.scss";
 
 export const metadata: Metadata = SEO({
-	title: "levdev",
+	title: "Phaser",
 	type: "website",
 	isRoot: true,
 });
@@ -42,7 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 		<html lang="en" className={`${montserrat.variable} ${roboto.variable} ${roboto_mono.variable}`}>
 			<body>
 				<script
-					data-goatcounter="https://levdev.goatcounter.com/count"
+					data-goatcounter="https://Phaser.goatcounter.com/count"
 					async
 					src="//gc.zgo.at/count.js"
 				></script>

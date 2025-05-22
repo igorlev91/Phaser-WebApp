@@ -358,7 +358,7 @@ const GameplayAbilitySystem = () => {
 							status effects depending on data from the user and the targets.
 						</blockquote>
 						<p>
-							It might not sound like the Gameplay Ability System (GAS) has a reason to be in levdev.
+							It might not sound like the Gameplay Ability System (GAS) has a reason to be in Phaser.
 							Shooting a weapon could have easily been accomplished without a framework, and it was that
 							way at first. However, I wanted to learn how an ability system worked in a game engine. GAS
 							is a massive framework that was overwhelming at first. To make it less so, I narrowed my
@@ -367,7 +367,7 @@ const GameplayAbilitySystem = () => {
 							to other abilities.
 						</p>
 						<p>
-							This article lays out exactly how I&#39;ve implemented GAS in levdev. I&#39;ve tried to be
+							This article lays out exactly how I&#39;ve implemented GAS in Phaser. I&#39;ve tried to be
 							thorough so that recreating it would be as easy as possible. The{" "}
 							<Link href={"#gas-classes"}>first section</Link> gives an overview of any classes I created
 							and their purpose. The titles of each section are links that take you to the code on GitHub.
@@ -396,7 +396,7 @@ const GameplayAbilitySystem = () => {
 							<BlogHeading headingText="GAS Classes" headingLevel={1} />
 							<p>
 								Many of the classes that are part of GAS are meant to be subclassed in C++. In this
-								section, I&#39;ll introduce each class that levdev either overrides or uses.
+								section, I&#39;ll introduce each class that Phaser either overrides or uses.
 							</p>
 							<p>
 								Note: The last five classes (
@@ -409,11 +409,11 @@ const GameplayAbilitySystem = () => {
 									baseClass="UAbilitySystemComponent"
 									childClass="UBSAbilitySystemComponent"
 									headingLevel={2}
-									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/BSAbilitySystemComponent.cpp"
+									childClassLink="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Private/AbilitySystem/BSAbilitySystemComponent.cpp"
 								/>
 								<p>
 									The Ability System Component (ASC) is added to any actor that wants to interact with
-									GAS. For levdev, the only actors that have ASCs are the character and targets.
+									GAS. For Phaser, the only actors that have ASCs are the character and targets.
 								</p>
 								<ul>
 									<p>
@@ -497,7 +497,7 @@ const GameplayAbilitySystem = () => {
 									baseClass="UGameplayAbility"
 									childClass="UBSGameplayAbility"
 									headingLevel={2}
-									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Abilities/BSGameplayAbility.cpp"
+									childClassLink="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Private/AbilitySystem/Abilities/BSGameplayAbility.cpp"
 								/>
 								<p>A Gameplay Ability (GA) is an action or skill that an actor can perform in game.</p>
 								<p>
@@ -510,7 +510,7 @@ const GameplayAbilitySystem = () => {
 										baseClass="UBSGameplayAbility"
 										childClass="UBSGA_FireGun"
 										headingLevel={3}
-										childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Abilities/BSGA_FireGun.cpp"
+										childClassLink="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Private/AbilitySystem/Abilities/BSGA_FireGun.cpp"
 									/>
 									<p>
 										This is the ability for shooting the gun in a game mode that uses Hit-Based
@@ -524,7 +524,7 @@ const GameplayAbilitySystem = () => {
 										baseClass="UBSGameplayAbility"
 										childClass="UBSGA_TrackGun"
 										headingLevel={3}
-										childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Abilities/BSGA_TrackGun.cpp"
+										childClassLink="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Private/AbilitySystem/Abilities/BSGA_TrackGun.cpp"
 									/>
 									<p>
 										This is the ability for dealing damage to targets for a game mode that uses
@@ -596,7 +596,7 @@ const GameplayAbilitySystem = () => {
 											headingLevel={4}
 											compOfText="used by"
 											compOf="UBSGA_TrackGun"
-											childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Tasks/BSAT_TickTrace.cpp"
+											childClassLink="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Private/AbilitySystem/Tasks/BSAT_TickTrace.cpp"
 										/>
 										<p>
 											The purpose of this task is to broadcast a HitResult from a{" "}
@@ -617,10 +617,10 @@ const GameplayAbilitySystem = () => {
 										baseClass="UBSGameplayAbility"
 										childClass="UBSGA_AimBot"
 										headingLevel={3}
-										childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Abilities/BSGA_AimBot.cpp"
+										childClassLink="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Private/AbilitySystem/Abilities/BSGA_AimBot.cpp"
 									/>
 									<p>
-										Before levdev&#39;s trailer was edited, I needed footage of the game in action
+										Before Phaser&#39;s trailer was edited, I needed footage of the game in action
 										but didn&#39;t want to worry about performing well during every footage take
 										since there was a lot to record. This ability was created in response to this.
 										It provides automated aiming to targets and looks decently realistic. It can
@@ -632,7 +632,7 @@ const GameplayAbilitySystem = () => {
 										what{" "}
 										<Link
 											className="link text-light hover-white"
-											href="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Player/BSCheatManager.cpp"
+											href="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Private/Player/BSCheatManager.cpp"
 										>
 											<BSInlineFunction>UBSCheatManager</BSInlineFunction>
 										</Link>{" "}
@@ -722,7 +722,7 @@ const GameplayAbilitySystem = () => {
 											baseClass="UAbilityTask"
 											childClass="UBSAT_AimToTarget"
 											headingLevel={4}
-											childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Tasks/BSAT_AimToTarget.cpp"
+											childClassLink="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Private/AbilitySystem/Tasks/BSAT_AimToTarget.cpp"
 										/>
 										<p>
 											The main reason I chose to use an Ability Task for the Aim Bot ability is
@@ -827,17 +827,17 @@ const GameplayAbilitySystem = () => {
 									baseClass="UAttributeSet"
 									childClass="UBSAttributeSetBase"
 									headingLevel={2}
-									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Globals/BSAttributeSetBase.cpp"
+									childClassLink="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Private/AbilitySystem/Globals/BSAttributeSetBase.cpp"
 								/>
 								<p className="">
-									An Attribute Set is a group of stats that an actor with an ASC has. levdev has
+									An Attribute Set is a group of stats that an actor with an ASC has. Phaser has
 									several attributes, including Max Health, Health, Hit Damage, Tracking Damage, and{" "}
 									Total Damage.
 								</p>
 								<p className="">
 									The first four are regular attributes that are replicated, while Total Damage is
 									considered Meta attribute. Meta attributes only exist on the server and are used in
-									levdev to calculate the damage that should be applied to a target.
+									Phaser to calculate the damage that should be applied to a target.
 								</p>
 								<ul>
 									In my implementation, attribute sets live in different places depending on the
@@ -884,7 +884,7 @@ const GameplayAbilitySystem = () => {
 									UGameplayEffect.
 								</blockquote>
 								<p>
-									Any damage that is dealt in levdev is applied using an instant duration GE. This
+									Any damage that is dealt in Phaser is applied using an instant duration GE. This
 									is discussed further in the{" "}
 									<Link href={"#classes-UBSDamageExecCalc"}>UBSDamageExecCalc section</Link>.
 								</p>
@@ -945,7 +945,7 @@ const GameplayAbilitySystem = () => {
 									baseClass="UEnhancedInputComponent"
 									childClass="UBSInputComponent"
 									headingLevel={2}
-									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Input/BSInputComponent.cpp"
+									childClassLink="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Private/Input/BSInputComponent.cpp"
 								/>
 								<p>
 									I chose to implement this class simply because I found the{" "}
@@ -959,7 +959,7 @@ const GameplayAbilitySystem = () => {
 										baseClass="UDataAsset"
 										childClass="UBSInputConfig"
 										headingLevel={3}
-										childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Input/BSInputConfig.cpp"
+										childClassLink="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Private/Input/BSInputConfig.cpp"
 									/>
 									<p>
 										This data asset maps each Input Action to an Input Tag, which is just a Gameplay
@@ -994,7 +994,7 @@ const GameplayAbilitySystem = () => {
 										id="figure-1"
 										image={DA_InputConfig}
 										figNumber={1}
-										figCaption={`The input configuration for a character in levdev.`}
+										figCaption={`The input configuration for a character in Phaser.`}
 										alt="DA_InputConfig"
 										limitMaxWidth
 									/>
@@ -1005,7 +1005,7 @@ const GameplayAbilitySystem = () => {
 									baseClass="UDataAsset"
 									childClass="UBSAbilitySet"
 									headingLevel={2}
-									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/Globals/BSAbilitySet.cpp"
+									childClassLink="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Private/AbilitySystem/Globals/BSAbilitySet.cpp"
 								/>
 								<p>
 									An Ability Set is a group of Gameplay Abilities, Gameplay Effects, and Attribute
@@ -1057,7 +1057,7 @@ const GameplayAbilitySystem = () => {
 									baseClass="UGameplayEffectExecutionCalculation"
 									childClass="UBSDamageExecCalc"
 									headingLevel={2}
-									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/ExecutionCalculations/BSDamageExecCalc.cpp"
+									childClassLink="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Private/AbilitySystem/ExecutionCalculations/BSDamageExecCalc.cpp"
 								/>
 								<p>
 									Instead of just &#34;Apply 100 damage by removing 100 health points&#34;, a Gameplay
@@ -1073,7 +1073,7 @@ const GameplayAbilitySystem = () => {
 									baseClass="UActorComponent"
 									childClass="UBSHealthComponent"
 									headingLevel={2}
-									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Character/BSHealthComponent.cpp"
+									childClassLink="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Private/Character/BSHealthComponent.cpp"
 								/>
 								<p>
 									This component is added to any actors where keeping track of their health is
@@ -1090,7 +1090,7 @@ const GameplayAbilitySystem = () => {
 						<div className="article-section" ref={Ref_tl} id="timeline">
 							<BlogHeading headingText="Timeline" headingLevel={1} />
 							<p>
-								For this section, I detail what happens when the player in levdev shoots a target in a
+								For this section, I detail what happens when the player in Phaser shoots a target in a
 								Hit-Based damage game mode, starting from when the player presses the IA. This means
 								that the GA used throughout this section will always be{" "}
 								<BSInlineFunction>UBSGA_FireGun</BSInlineFunction>.
@@ -1202,7 +1202,7 @@ const GameplayAbilitySystem = () => {
 											<BSInlineFunction>::CommitAbility</BSInlineFunction> is called on the GA.
 											This is where any cooldowns or costs associated with the ability are
 											checked. The cooldown for FireGun is the same as the weapon’s fire rate, but
-											there is no cost to firing the weapon since levdev’s weapons have
+											there is no cost to firing the weapon since Phaser’s weapons have
 											unlimited ammo. If <BSInlineFunction>::CommitAbility</BSInlineFunction>{" "}
 											returns false, the ability is ended, otherwise{" "}
 											<BSInlineFunction>::OnTargetDataReady</BSInlineFunction> is called.
@@ -1382,7 +1382,7 @@ const GameplayAbilitySystem = () => {
 													<ul>
 														<li>
 															<FontAwesomeIcon icon={faCrosshairs} className="li-icon" />
-															As previously mentioned, levdev uses two types of damage:
+															As previously mentioned, Phaser uses two types of damage:
 															Hit and Tracking. These attributes are snapshot from the
 															source (damage causer) during initialization of the of a{" "}
 															GESpec.
@@ -1536,9 +1536,9 @@ const GameplayAbilitySystem = () => {
 						<div className="article-section" ref={Ref_conclusion} id="conclusion">
 							<BlogHeading headingText="Conclusion" headingLevel={1} />
 							<p>
-								levdev&#39;s abilities are pretty simple, so it does not take full advantage of
+								Phaser&#39;s abilities are pretty simple, so it does not take full advantage of
 								everything GAS has to offer. However, I do not believe it was a waste of time to
-								implement. Adding new abilities is a breeze once everything is set up. If levdev were
+								implement. Adding new abilities is a breeze once everything is set up. If Phaser were
 								to ever offer multiplayer in the future, the abilities would still work thanks to
 								built-in replication from GAS.
 							</p>
@@ -1569,14 +1569,14 @@ const GameplayAbilitySystem = () => {
 								Writing public-facing articles helps reinforce what I learn. While writing this one, I
 								modified quite a few things (see{" "}
 								<Link
-									href="https://github.com/markoleptic/levdev/commit/33a788d180c8666ca45f27d3b6b102ec2e324901"
+									href="https://github.com/markoleptic/Phaser/commit/33a788d180c8666ca45f27d3b6b102ec2e324901"
 									className=""
 								>
 									here
 								</Link>{" "}
 								through{" "}
 								<Link
-									href="https://github.com/markoleptic/levdev/commit/9c7feb6769ed34e0a6379d20f04a599a4adcc5c3"
+									href="https://github.com/markoleptic/Phaser/commit/9c7feb6769ed34e0a6379d20f04a599a4adcc5c3"
 									className=""
 								>
 									here
@@ -1584,7 +1584,7 @@ const GameplayAbilitySystem = () => {
 								). It forces me to understand my implementation at a deeper level since I don&#39;t want
 								to provide misinformation or include anything seemingly unnecessary. If you believe
 								something I&#39;ve said is incorrect, feel free to{" "}
-								<Link href="mailto: mark@levdev.gg">send me an email</Link> so I can correct it. I
+								<Link href="mailto: mark@Phaser.gg">send me an email</Link> so I can correct it. I
 								hope you learned something and thanks for reading!
 							</p>
 						</div>

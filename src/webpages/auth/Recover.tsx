@@ -100,7 +100,7 @@ const Recover = () => {
 								className="form-text"
 								type="email"
 								id="email"
-								placeholder="icantaim@levdev.gg"
+								placeholder="icantaim@Phaser.gg"
 								autoComplete="on"
 								onChange={(e) => setEmail(e.target.value)}
 								required

@@ -2,7 +2,7 @@ import SEO from "@/components/SEO";
 import { Metadata } from "next";
 
 export const metadata: Metadata = SEO({
-	title: "Register | levdev",
+	title: "Register | Phaser",
 	type: "website",
 	url: "/register",
 });

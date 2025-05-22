@@ -3,10 +3,10 @@ import { DateTime } from "luxon";
 
 import image_Card from "public/gameplayAbilitySystem/Card.jpg";
 
-const titleShort = "GAS in levdev | Developer Blog";
-const titleLong = "An Overview of Unreal's Gameplay Ability System in levdev";
+const titleShort = "GAS in Phaser | Developer Blog";
+const titleLong = "An Overview of Unreal's Gameplay Ability System in Phaser";
 const description =
-	"Why is the Gameplay Ability System used in levdev? This article explains the role of GAS and " +
+	"Why is the Gameplay Ability System used in Phaser? This article explains the role of GAS and " +
 	"provides a walkthrough of a common ability.";
 const postDate: DateTime = DateTime.fromFormat("September 15, 2023", "DDD");
 const editDate: DateTime = DateTime.fromFormat("July 21, 2024", "DDD");

@@ -8,8 +8,8 @@
 	gap: 1rem;
 	width: 100%;
 	max-width: 800px;
-	background-color: $clr-levdev-darkblue;
-	box-shadow: 0rem 0rem 0.25rem 0rem $clr-levdev-lightblue;
+	background-color: $clr-Phaser-darkblue;
+	box-shadow: 0rem 0rem 0.25rem 0rem $clr-Phaser-lightblue;
 	border-radius: 0.25rem;
 	padding: 1rem;
 	font-family: var(--font-roboto);
@@ -23,8 +23,8 @@
 	gap: 1rem;
 	width: 100%;
 	max-width: 800px;
-	background-color: $clr-levdev-darkblue;
-	box-shadow: 0rem 0rem 0.25rem 0rem $clr-levdev-lightblue;
+	background-color: $clr-Phaser-darkblue;
+	box-shadow: 0rem 0rem 0.25rem 0rem $clr-Phaser-lightblue;
 	border-radius: 0.25rem;
 	padding: 1rem;
 	font-family: var(--font-roboto);
@@ -57,14 +57,14 @@
 }
 /* top level icons */
 .home-container ul svg {
-	color: $clr-levdev-lightblue;
+	color: $clr-Phaser-lightblue;
 	height: auto;
 	width: 0.75em;
 	padding-right: 0.25em;
 }
 /* 2nd level icons */
 .home-container ul ul svg {
-	color: $clr-levdev-lightblue;
+	color: $clr-Phaser-lightblue;
 	height: auto;
 	width: 0.6em;
 	padding-right: 0.25em;

@@ -4,7 +4,7 @@ import { PlayerDataProvider } from "@/context/PlayerDataContext";
 import { Metadata } from "next";
 
 export const metadata: Metadata = SEO({
-	title: "Profile | levdev",
+	title: "Profile | Phaser",
 	type: "website",
 	url: "/profile",
 });

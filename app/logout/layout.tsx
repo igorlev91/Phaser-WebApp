@@ -1,7 +1,7 @@
 import SEO from "@/components/SEO";
 import { Metadata } from "next";
 export const metadata: Metadata = SEO({
-	title: "Log Out | levdev",
+	title: "Log Out | Phaser",
 	type: "website",
 	additionalKeywords: ["logout", "sign out", "steam"],
 	url: "/logout",

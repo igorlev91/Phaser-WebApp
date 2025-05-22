@@ -1,6 +1,6 @@
 @import "Variables";
 
-$box-shadow-default: 0rem 0rem 0.25rem 0rem $clr-levdev-lightblue;
+$box-shadow-default: 0rem 0rem 0.25rem 0rem $clr-Phaser-lightblue;
 $border-radius-default: 0.25rem;
 
 // Mixins
@@ -20,7 +20,7 @@ $border-radius-default: 0.25rem;
 	margin: auto;
 	width: 100%;
 	max-width: $max-width;
-	background-color: $clr-levdev-darkblue;
+	background-color: $clr-Phaser-darkblue;
 	box-shadow: $box-shadow-default;
 	border-radius: $border-radius-default;
 	padding: $padding;
@@ -35,7 +35,7 @@ $border-radius-default: 0.25rem;
 	@include flex-center(column, 0.25rem);
 	line-height: 1;
 	font-size: $fs-100;
-	background: $clr-levdev-bluegrey;
+	background: $clr-Phaser-bluegrey;
 	color: $clr-white;
 	padding: 0.25rem;
 	position: relative;
@@ -78,7 +78,7 @@ $border-radius-default: 0.25rem;
 			}
 		}
 		svg {
-			color: $clr-levdev-lightblue;
+			color: $clr-Phaser-lightblue;
 			height: auto;
 			width: 0.75em;
 			padding-right: 0.25em;
@@ -171,14 +171,14 @@ $border-radius-default: 0.25rem;
 
 .steam-login-container:hover {
 	cursor: pointer;
-	color: $clr-levdev-lightblue;
+	color: $clr-Phaser-lightblue;
 	box-shadow: $box-shadow-default;
 	border-radius: $border-radius-default;
 }
 
 .steam-login-container-top {
 	flex-direction: row;
-	background-color: $clr-levdev-bluegrey;
+	background-color: $clr-Phaser-bluegrey;
 	border-radius: 0.25rem 0.25rem 0 0;
 	padding: 0.25rem 0.75rem;
 }
@@ -194,7 +194,7 @@ $border-radius-default: 0.25rem;
 	@include text-style($fs-100);
 	text-align: center;
 	padding-top: 0.5rem;
-	color: $clr-levdev-lightgrey;
+	color: $clr-Phaser-lightgrey;
 
 	&.figlabel {
 		font-weight: 700;
@@ -217,7 +217,7 @@ div.sidebar-container {
 	@include flex-center(column, 1rem);
 	align-self: flex-start;
 	padding: 1rem 0;
-	background: $clr-levdev-darkblue;
+	background: $clr-Phaser-darkblue;
 	position: sticky;
 	top: $header-height;
 	height: auto;
@@ -253,6 +253,6 @@ div.hero-container {
 	position: sticky;
 	height: $header-height;
 	width: 100%;
-	background: $clr-levdev-bluegrey;
+	background: $clr-Phaser-bluegrey;
 	z-index: 9999;
 }

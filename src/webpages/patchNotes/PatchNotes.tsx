@@ -106,7 +106,7 @@ const patchNotesData: PatchNotesData[] = [
 							<FontAwesomeIcon icon={faPlay} />
 							<p>
 								Fixed a bug where the game could crash when failing to receive an HTTP response from the
-								levdev API after changing levels.
+								Phaser API after changing levels.
 							</p>
 						</li>
 						<li>
@@ -127,7 +127,7 @@ const patchNotesData: PatchNotesData[] = [
 							<FontAwesomeIcon icon={faPlay} />
 							<p>
 								Fixed an issue where no text would show upon failing to retrieve an access token from
-								the levdev API when deleting scores from the database.
+								the Phaser API when deleting scores from the database.
 							</p>
 						</li>
 						<li>
@@ -243,7 +243,7 @@ const patchNotesData: PatchNotesData[] = [
 									<FontAwesomeIcon icon={faPlay} />
 									<p>
 										The file is located in
-										C:/Username/AppData/Local/levdev/Saved/Config/Windows/GameUserSettings.ini.
+										C:/Username/AppData/Local/Phaser/Saved/Config/Windows/GameUserSettings.ini.
 									</p>
 								</li>
 							</ul>
@@ -1768,7 +1768,7 @@ const PatchNotes = ({ initialPage }: { initialPage: number }) => {
 							href={
 								"https://store.steampowered.com/news/app/2126580/view/" +
 								note.link +
-								"?utm_source=levdevwebsite&utm_medium=web"
+								"?utm_source=Phaserwebsite&utm_medium=web"
 							}
 						>
 							{note.version}

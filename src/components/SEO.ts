@@ -26,11 +26,11 @@ export default function SEO(params: SEOInterface): Metadata {
 		clearDefaultKeywords = false,
 		isRoot = false,
 	} = params;
-	title = title || "levdev";
+	title = title || "Phaser";
 	type = type || "website";
 	description = description || "the rhythm-based aim trainer";
 	twitterCard = twitterCard || "summary";
-	let keywords = ["levdev", "beat shot", "game", "aim training", "aim trainer", "aim-trainer", "rhythm", "music"];
+	let keywords = ["Phaser", "beat shot", "game", "aim training", "aim trainer", "aim-trainer", "rhythm", "music"];
 	if (clearDefaultKeywords) {
 		keywords = [];
 	}
@@ -47,7 +47,7 @@ export default function SEO(params: SEOInterface): Metadata {
 			openGraph: {
 				title: ogTwitterTitle || title,
 				description: description,
-				siteName: "levdev",
+				siteName: "Phaser",
 				locale: "en_US",
 				type: type,
 			},
@@ -65,7 +65,7 @@ export default function SEO(params: SEOInterface): Metadata {
 			title: ogTwitterTitle || title,
 			description: description,
 			url: url,
-			siteName: "levdev",
+			siteName: "Phaser",
 			locale: "en_US",
 			type: type,
 		},

@@ -10,7 +10,7 @@ const SteamSteamPurchaseLink = (): React.JSX.Element => {
 	return (
 		<Link
 			className="link hover-blue steam-login-container steam-purchase-container"
-			href={"https://store.steampowered.com/app/2126580?utm_source=levdevwebsite&utm_medium=web"}
+			href={"https://store.steampowered.com/app/2126580?utm_source=Phaserwebsite&utm_medium=web"}
 		>
 			<div className="steam-login-container-top">
 				<p className="steam-login-text">view on</p>

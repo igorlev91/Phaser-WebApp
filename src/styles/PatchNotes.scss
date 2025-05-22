@@ -69,17 +69,17 @@
 }
 /* top level text/icon color */
 .pn-container > ul > li > p {
-	color: $clr-levdev-lightblue;
+	color: $clr-Phaser-lightblue;
 }
 .pn-container > ul > li > svg {
 	color: $clr-white;
 }
 /* 2nd level text/icon color */
 .pn-container > ul > li > p {
-	color: $clr-levdev-lightblue;
+	color: $clr-Phaser-lightblue;
 }
 .pn-container > ul > li > ul svg {
-	color: $clr-levdev-lightblue;
+	color: $clr-Phaser-lightblue;
 }
 
 /* text indent should be same width as total svg width (width + padding-right) */
@@ -111,8 +111,8 @@
 	text-align: center;
 	font-size: $fs-600;
 	font-weight: $fw-500;
-	text-shadow: 0 0 4px $clr-levdev-lightblue;
-	color: $clr-levdev-lightblue;
+	text-shadow: 0 0 4px $clr-Phaser-lightblue;
+	color: $clr-Phaser-lightblue;
 }
 .pn-version-number {
 	font-weight: $fw-600;
@@ -134,7 +134,7 @@
 	padding-bottom: 0.3em;
 }
 .pn-dev-note {
-	color: $clr-levdev-lightblue;
+	color: $clr-Phaser-lightblue;
 	text-indent: 0em !important;
 	padding-left: 0em !important;
 	line-height: 1.25em !important;

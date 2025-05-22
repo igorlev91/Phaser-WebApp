@@ -191,7 +191,7 @@ const Register = () => {
 								className="form-text"
 								type="email"
 								id="email"
-								placeholder="icantaim@levdev.gg"
+								placeholder="icantaim@Phaser.gg"
 								autoComplete="off"
 								onChange={(e) => setEmail(e.target.value)}
 								required

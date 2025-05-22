@@ -40,7 +40,7 @@ form {
 }
 .form-title {
 	font-size: 1.25rem;
-	color: $clr-levdev-lightblue;
+	color: $clr-Phaser-lightblue;
 	text-align: center;
 }
 .form-label {
@@ -72,7 +72,7 @@ form {
 	padding: 0.25rem;
 }
 .checkEmailMsg {
-	background-color: $clr-levdev-lightblue;
+	background-color: $clr-Phaser-lightblue;
 	//color: $clr-dark;
 	font-size: $fs-200;
 	text-align: center;
@@ -85,7 +85,7 @@ form {
 	gap: 0.25rem;
 	line-height: 1;
 	font-size: $fs-100;
-	background: $clr-levdev-bluegrey;
+	background: $clr-Phaser-bluegrey;
 	color: $clr-white;
 	padding: 0.25rem;
 	position: relative;
@@ -101,7 +101,7 @@ form {
 }
 .instructions {
 	font-size: $fs-100;
-	background: $clr-levdev-bluegrey;
+	background: $clr-Phaser-bluegrey;
 	color: $clr-white;
 	padding: 0.2rem;
 }
@@ -113,7 +113,7 @@ form {
 	align-items: center;
 	width: fit-content;
 	&:hover {
-		color: $clr-levdev-lightblue;
+		color: $clr-Phaser-lightblue;
 	}
 }
 .form input[type="checkbox"] {
@@ -129,11 +129,11 @@ form {
 }
 /* hover unchecked icon */
 .form input[type="checkbox"] + label.fa:hover {
-	color: $clr-levdev-lightblue;
+	color: $clr-Phaser-lightblue;
 }
 /* pressed unchecked icon */
 .form input[type="checkbox"] + label.fa:active {
-	color: rgba($clr-levdev-lightblue, 0.5);
+	color: rgba($clr-Phaser-lightblue, 0.5);
 }
 /* checked icon */
 .form input[type="checkbox"]:checked + label.fa:before {
@@ -142,15 +142,15 @@ form {
 }
 /* checked icon color */
 .form input[type="checkbox"]:checked + label.fa {
-	color: $clr-levdev-lightblue;
+	color: $clr-Phaser-lightblue;
 }
 /* hovered checked icon */
 .form input[type="checkbox"]:checked + label.fa:hover {
-	color: $clr-levdev-lightgrey;
+	color: $clr-Phaser-lightgrey;
 }
 /* pressed checked icon */
 .form input[type="checkbox"]:checked + label.fa:active {
-	color: $clr-levdev-darkgrey;
+	color: $clr-Phaser-darkgrey;
 }
 .offscreen {
 	position: absolute;

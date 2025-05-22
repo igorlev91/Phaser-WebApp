@@ -2,7 +2,7 @@ import SEO from "@/components/SEO";
 import { Metadata } from "next";
 
 export const metadata: Metadata = SEO({
-	title: "Email Confirmation | levdev",
+	title: "Email Confirmation | Phaser",
 	type: "website",
 	additionalKeywords: ["confirmation email"],
 	url: "/confirmation",

@@ -3,8 +3,8 @@ import { DateTime } from "luxon";
 
 import image_Card from "public/targetSpawningSystem/Part1Card.jpg";
 
-const titleShort = "levdev's Target Spawning System: Part 1 | Developer Blog";
-const titleLong = "levdev's Target Spawning System: Part 1 - Core Classes and Conventions";
+const titleShort = "Phaser's Target Spawning System: Part 1 | Developer Blog";
+const titleLong = "Phaser's Target Spawning System: Part 1 - Core Classes and Conventions";
 const description =
 	"Learn about the classes, state management systems, and some of the conventions used to create a target spawning " +
 	"system in an aim-training game.";

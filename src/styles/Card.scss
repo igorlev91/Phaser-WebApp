@@ -22,14 +22,14 @@ div .card-label {
 	height: auto;
 }
 .card-container:hover .card-label {
-	color: $clr-levdev-lightblue;
+	color: $clr-Phaser-lightblue;
 }
 .card-container:hover .sub-heading,
 .card-sub-label {
 	color: $clr-white;
 }
 .card-container:hover img {
-	box-shadow: 0rem 0rem 0.25rem 0rem $clr-levdev-lightblue;
+	box-shadow: 0rem 0rem 0.25rem 0rem $clr-Phaser-lightblue;
 }
 .card {
 	width: fit-content;

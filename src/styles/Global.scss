@@ -57,7 +57,7 @@ body {
 	font-weight: $fw-400;
 	line-height: 1.5;
 	min-height: 100vh;
-	background-color: $clr-levdev-darkblue;
+	background-color: $clr-Phaser-darkblue;
 }
 :root {
 	min-height: 100vh;
@@ -71,10 +71,10 @@ a {
 	text-decoration: none;
 	color: $clr-white;
 	&:hover {
-		color: $clr-levdev-lightblue;
+		color: $clr-Phaser-lightblue;
 	}
 	&.active {
-		color: $clr-levdev-lightblue;
+		color: $clr-Phaser-lightblue;
 	}
 }
 .hover-white:hover {
@@ -115,13 +115,13 @@ button {
 	padding: 0.25rem;
 	cursor: pointer;
 	&:hover {
-		background-color: $clr-levdev-lightblue;
+		background-color: $clr-Phaser-lightblue;
 	}
 	&:disabled {
 		border-radius: 0.25rem;
-		background-color: $clr-levdev-lightgrey;
+		background-color: $clr-Phaser-lightgrey;
 		&:hover {
-			background-color: $clr-levdev-darkgrey;
+			background-color: $clr-Phaser-darkgrey;
 		}
 	}
 }
@@ -190,8 +190,8 @@ button {
 	gap: 0.75rem;
 	width: 100%;
 	max-width: 800px;
-	background-color: $clr-levdev-darkblue;
-	box-shadow: 0rem 0rem 0.25rem 0rem $clr-levdev-lightblue;
+	background-color: $clr-Phaser-darkblue;
+	box-shadow: 0rem 0rem 0.25rem 0rem $clr-Phaser-lightblue;
 	border-radius: 0.25rem;
 	padding: 1rem;
 }
@@ -204,8 +204,8 @@ button {
 	gap: 0rem;
 	width: 100%;
 	max-width: 800px;
-	background-color: $clr-levdev-darkblue;
-	box-shadow: 0rem 0rem 0.25rem 0rem $clr-levdev-lightblue;
+	background-color: $clr-Phaser-darkblue;
+	box-shadow: 0rem 0rem 0.25rem 0rem $clr-Phaser-lightblue;
 	border-radius: 0.25rem;
 }
 .centered-bordered-container-1000 {
@@ -217,15 +217,15 @@ button {
 	gap: 0.75rem;
 	width: 100%;
 	max-width: 1000px;
-	background-color: $clr-levdev-darkblue;
-	box-shadow: 0rem 0rem 0.25rem 0rem $clr-levdev-lightblue;
+	background-color: $clr-Phaser-darkblue;
+	box-shadow: 0rem 0rem 0.25rem 0rem $clr-Phaser-lightblue;
 	border-radius: 0.25rem;
 	padding: 1rem;
 }
 .profile-name-text {
 	font-weight: $fw-600;
-	text-shadow: 0 0 4px $clr-levdev-lightblue;
-	color: $clr-levdev-lightblue;
+	text-shadow: 0 0 4px $clr-Phaser-lightblue;
+	color: $clr-Phaser-lightblue;
 	text-align: center;
 	text-decoration: none;
 	outline: none;
@@ -245,8 +245,8 @@ button {
 }
 .loading-text {
 	font-weight: $fw-600;
-	text-shadow: 0 0 4px $clr-levdev-lightblue;
-	color: $clr-levdev-lightblue;
+	text-shadow: 0 0 4px $clr-Phaser-lightblue;
+	color: $clr-Phaser-lightblue;
 }
 
 /*---------------*/

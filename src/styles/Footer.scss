@@ -10,7 +10,7 @@
 	bottom: 0;
 	height: $header-height;
 	width: 100%;
-	background: $clr-levdev-bluegrey;
+	background: $clr-Phaser-bluegrey;
 	z-index: 9999;
 }
 footer {
@@ -40,8 +40,8 @@ footer {
 }
 .footer-logo-text {
 	font-weight: $fw-600;
-	text-shadow: 0 0 8px $clr-levdev-lightblue;
-	color: $clr-levdev-lightblue;
+	text-shadow: 0 0 8px $clr-Phaser-lightblue;
+	color: $clr-Phaser-lightblue;
 }
 .footer-description-text {
 	padding-top: 0.1rem;

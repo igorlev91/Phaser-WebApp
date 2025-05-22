@@ -13,7 +13,7 @@ const Video = (): React.JSX.Element => {
 				aspectHeight={9}
 				aspectWidth={16}
 				id="nVDfVseH24g"
-				title={"levdev Trailer"}
+				title={"Phaser Trailer"}
 				iframeClass="responsive-iframe"
 				poster={"maxresdefault"}
 			/>

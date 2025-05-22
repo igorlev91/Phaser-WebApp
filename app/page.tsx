@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faCrosshairs } from "@fortawesome/free-solid-svg-icons";
-import Timing from "public/frontPage/levdevTiming_large.png";
+import Timing from "public/frontPage/PhaserTiming_large.png";
 import StatsPreview from "public/frontPage/Stats_Preview.gif";
 import Image from "next/image";
 import Video from "@/components/Video";
@@ -15,7 +15,7 @@ const Home = () => {
 				<div className="home-top-container">
 					<Video />
 					<p className="fs-300 text-center">
-						<p className="inline text-light">levdev</p> is a rhythm-based aim-trainer where your music
+						<p className="inline text-light">Phaser</p> is a rhythm-based aim-trainer where your music
 						sets the tempo for precision aiming challenges. Conquer engaging default game modes, craft
 						custom game modes, and make aim-training less of a chore.
 					</p>
@@ -204,7 +204,7 @@ const Home = () => {
 					<h3 className="text-light text-center">Predictive Aim Training</h3>
 					<div className="home-inner-container fs-200">
 						<p>
-							levdev leverages the power of reinforcement learning to dynamically predict target spawn
+							Phaser leverages the power of reinforcement learning to dynamically predict target spawn
 							locations tailored to your unique playstyle.
 						</p>
 					</div>

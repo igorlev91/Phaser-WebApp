@@ -18,7 +18,7 @@ const BlogPostsMain = () => {
 		<div className="flex-container-column">
 			<div className="hero-container">
 				<div className="hero">
-					<h1>levdev Developer Blog</h1>
+					<h1>Phaser Developer Blog</h1>
 				</div>
 			</div>
 			<div className="flex-container-row padding-1rem gap-1rem flex-wrap">

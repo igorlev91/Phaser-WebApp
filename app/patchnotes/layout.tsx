@@ -1,7 +1,7 @@
 import SEO from "@/components/SEO";
 import { Metadata } from "next";
 export const metadata: Metadata = SEO({
-	title: "Patch Notes | levdev",
+	title: "Patch Notes | Phaser",
 	type: "website",
 	url: "/patchnotes",
 	additionalKeywords: ["patch notes"],

@@ -253,7 +253,7 @@ const TargetSpawningSystem = () => {
 					{sideBar}
 					<article className="devblog-article flex-container-column" id="article">
 						<p>
-							This article explores the foundational elements of levdev&#39;s target spawning system. It
+							This article explores the foundational elements of Phaser&#39;s target spawning system. It
 							provides an overview of the key classes involved, detailing their roles and the various
 							states they can occupy. It also covers the reasoning behind the chosen conventions and their
 							practical applications, while clarifying the boundaries between different systems and
@@ -262,7 +262,7 @@ const TargetSpawningSystem = () => {
 						<div className="article-section" ref={Ref_Classes} id="classes-header">
 							<BlogHeading headingText="Classes" headingLevel={1} />
 							<p>
-								This section gives a brief description of all classes involved in levdev&#39;s target
+								This section gives a brief description of all classes involved in Phaser&#39;s target
 								spawning system and establishes the context needed for the following sections.
 							</p>
 							<div className="article-subsection" ref={Ref_USpawnArea} id="classes-USpawnArea">
@@ -270,7 +270,7 @@ const TargetSpawningSystem = () => {
 									baseClass="UObject"
 									childClass="USpawnArea"
 									headingLevel={2}
-									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Public/Target/SpawnAreaManagerComponent.h"
+									childClassLink="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Public/Target/SpawnAreaManagerComponent.h"
 								/>
 								<p>
 									The area where targets may spawn is represented as a two-dimensional spatial grid,
@@ -286,7 +286,7 @@ const TargetSpawningSystem = () => {
 									baseClass="AActor"
 									childClass="ATargetManager"
 									headingLevel={2}
-									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Target/TargetManager.cpp"
+									childClassLink="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Private/Target/TargetManager.cpp"
 								/>
 
 								<ul>
@@ -351,7 +351,7 @@ const TargetSpawningSystem = () => {
 										childClass="UReinforcementLearningComponent"
 										compOf="ATargetManager"
 										headingLevel={3}
-										childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Target/ReinforcementLearningComponent.cpp"
+										childClassLink="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Private/Target/ReinforcementLearningComponent.cpp"
 									/>
 									<p>
 										The Reinforcement Learning Component is an optional feature available to custom
@@ -382,7 +382,7 @@ const TargetSpawningSystem = () => {
 										childClass="USpawnAreaManagerComponent"
 										compOf="ATargetManager"
 										headingLevel={3}
-										childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Target/SpawnAreaManagerComponent.cpp"
+										childClassLink="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Private/Target/SpawnAreaManagerComponent.cpp"
 									/>
 									<p>
 										The Spawn Area Manager Component creates and manages all Spawn Area objects. It
@@ -419,7 +419,7 @@ const TargetSpawningSystem = () => {
 									compOf="ATargetManager"
 									compOfText="spawned by"
 									headingLevel={2}
-									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Target/Target.cpp"
+									childClassLink="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Private/Target/Target.cpp"
 								/>
 								<p>
 									The target is the only visible actor in the target spawning system (in the release
@@ -461,7 +461,7 @@ const TargetSpawningSystem = () => {
 										childClass="UBSAbilitySystemComponent"
 										compOf="ATarget"
 										headingLevel={3}
-										childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/AbilitySystem/BSAbilitySystemComponent.cpp"
+										childClassLink="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Private/AbilitySystem/BSAbilitySystemComponent.cpp"
 									/>
 									<p>
 										Using the Ability System Component (ASC) for each target might seem excessive,
@@ -474,7 +474,7 @@ const TargetSpawningSystem = () => {
 									</p>
 									<p>
 										To learn more about how the ASC (part of the Gameplay Ability System plugin in
-										Unreal Engine) is used in levdev, check out the{" "}
+										Unreal Engine) is used in Phaser, check out the{" "}
 										<Link
 											className="text-light hover-white"
 											href="/devblog/gameplay-ability-system-overview"
@@ -490,7 +490,7 @@ const TargetSpawningSystem = () => {
 										childClass="UBSHealthComponent"
 										compOf="ATarget"
 										headingLevel={3}
-										childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/Character/BSHealthComponent.cpp"
+										childClassLink="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Private/Character/BSHealthComponent.cpp"
 									/>
 									<p>
 										The health component is initialized with Ability System Component so that it can
@@ -540,7 +540,7 @@ const TargetSpawningSystem = () => {
 									baseClass="AGameMode"
 									childClass="ABSGameMode"
 									headingLevel={2}
-									childClassLink="https://github.com/markoleptic/levdev/blob/c4d05de0786f2db218338d4910e6f32816584d32/levdev/Private/BSGameMode.cpp"
+									childClassLink="https://github.com/markoleptic/Phaser/blob/c4d05de0786f2db218338d4910e6f32816584d32/Phaser/Private/BSGameMode.cpp"
 								/>
 								<p>
 									The game mode spawns the Target Manager when the map loads. It initializes the

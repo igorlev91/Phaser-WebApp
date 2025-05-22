@@ -2,7 +2,7 @@ import SEO from "@/components/SEO";
 import { Metadata } from "next";
 
 export const metadata: Metadata = SEO({
-	title: "Redirect | levdev",
+	title: "Redirect | Phaser",
 	type: "website",
 	url: "/redirect",
 });

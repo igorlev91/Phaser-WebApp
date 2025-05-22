@@ -71,7 +71,7 @@ article div {
 .line-top,
 .line-bottom {
 	display: inline-block;
-	background-color: $clr-levdev-darkgrey;
+	background-color: $clr-Phaser-darkgrey;
 	background-clip: content-box, padding-box;
 }
 .article-section .line-top,
@@ -81,12 +81,12 @@ article div {
 .article-subsection .line-top,
 .article-subsection .line-bottom {
 	height: 4px;
-	background-color: rgba($clr-levdev-darkgrey, 0.75);
+	background-color: rgba($clr-Phaser-darkgrey, 0.75);
 }
 .article-subsection-2 .line-top,
 .article-subsection-2 .line-bottom {
 	height: 2px;
-	background-color: rgba($clr-levdev-darkgrey, 0.75);
+	background-color: rgba($clr-Phaser-darkgrey, 0.75);
 }
 
 /* Lists */
@@ -127,7 +127,7 @@ article ol li:nth-child(9) ~ li {
 	text-indent: $text-indent-calc;
 }
 article .li-icon {
-	color: $clr-levdev-lightblue;
+	color: $clr-Phaser-lightblue;
 	font-size: $fs-multiplier;
 	width: $fs-multiplier;
 	padding-right: 0.25em;
@@ -164,7 +164,7 @@ article figure {
 	font-size: $fs-100;
 	text-align: center;
 	padding-top: 0.5rem;
-	color: $clr-levdev-lightgrey;
+	color: $clr-Phaser-lightgrey;
 }
 .blueprint-container .figlabel {
 	display: inline;
@@ -172,7 +172,7 @@ article figure {
 	vertical-align: inherit;
 	font-size: $fs-100;
 	font-weight: 700;
-	color: $clr-levdev-lightgrey;
+	color: $clr-Phaser-lightgrey;
 }
 article figure img {
 	display: flex;
@@ -219,7 +219,7 @@ article figure figcaption {
 	font-size: $fs-200;
 	text-align: center;
 	padding-top: 0.5rem;
-	color: $clr-levdev-lightgrey;
+	color: $clr-Phaser-lightgrey;
 }
 article figure .figlabel {
 	display: inline;
@@ -227,7 +227,7 @@ article figure .figlabel {
 	vertical-align: inherit;
 	font-size: $fs-200;
 	font-weight: 700;
-	color: $clr-levdev-lightgrey;
+	color: $clr-Phaser-lightgrey;
 }
 article .posted-date {
 	font-size: $fs-200;

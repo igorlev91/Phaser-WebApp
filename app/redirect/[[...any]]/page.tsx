@@ -57,15 +57,15 @@ function getDescription(searchParams: ReadonlyURLSearchParams | null) {
 	} else if (context === "nouserid") {
 		return "No user id provided. Try refreshing the page.";
 	} else if (context === "steamlink" && success === "true") {
-		return "Successfully linked your levdev account to your steam account.";
+		return "Successfully linked your Phaser account to your steam account.";
 	} else if (context === "steamalreadylinked") {
-		return "Your levdev account is already linked to your Steam account.";
+		return "Your Phaser account is already linked to your Steam account.";
 	} else if (context === "steamlinkemail") {
 		return "Please confirm your email or request for a resend before attempting to link your Steam Account.";
 	} else if (context === "steamlinknouser") {
 		return "The requested user was not found in the database.";
 	} else if (context === "steamlinkedtodiffaccount") {
-		return "This steam account is already linked to an existing levdev account.";
+		return "This steam account is already linked to an existing Phaser account.";
 	} else {
 		return "";
 	}
