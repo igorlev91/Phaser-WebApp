@@ -15,9 +15,14 @@ const Home = () => {
 				<div className="home-top-container">
 					<Video />
 					<p className="fs-300 text-center">
-						<p className="inline text-light">Phaser</p> is a rhythm-based aim-trainer where your music
-						sets the tempo for precision aiming challenges. Conquer engaging default game modes, craft
-						custom game modes, and make aim-training less of a chore.
+						<p className="inline text-light">Phaser</p> is a next generation Web3 gaming ecosystem that
+						fuses high quality gameplay with blockchain technology, true asset ownership, and a fair, sustanable
+						monetization model. By blending gun, high quality gameplay with the groundbreaking features of blockchain technology to create
+						a truly immersive experience thats not just about owning assets, but having fun while doing it.
+
+						Build on Unreal Engine 5 with Ethereum Virtual Machine (EVM) integration Phaser
+						provides a cross platform experience for players on PC, consoles & mobile to interact in a thriving 
+						decentralized economy.
 					</p>
 					<SteamSteamPurchaseLink></SteamSteamPurchaseLink>
 				</div>
