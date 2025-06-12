@@ -26,232 +26,187 @@ const Home = () => {
 					</p>
 					<SteamSteamPurchaseLink></SteamSteamPurchaseLink>
 				</div>
-				<div className="home-container">
-					<h3 className="text-light text-center">Game Modes</h3>
-					<div className="home-inner-container">
+		<div className="home-container">
+					<h3 className="text-light text-center">Vision & Mission</h3>
+					<div className="home-inner-container fs-200">
+						<h4 className="text-light">Vision</h4>
 						<p>
-							<b className="text-light fs-300">Default Game Modes</b>
+							Our goal is to break the barriers between traditional gaming and blockchain technology, making
+							Web3 gaming accessible, fun, and rewarding for all.
 						</p>
-						<p>Default modes challenge your accuracy and reaction time through a range of scenarios.</p>
-						<ul>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} />
-								<p>
-									<b>BeatGrid:</b> Multiple reactivating targets spawned in a static, predefined grid
-								</p>
-							</li>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} />
-								<p>
-									<b>BeatTrack:</b> Multiple horizontally moving targets, damaged by hovering your
-									crosshair over them
-								</p>
-							</li>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} />
-								<p>
-									<b>Cluster Beat:</b> Several targets spawned simultaneously in close proximity, each
-									activated separately
-								</p>
-							</li>
+						<p>
+							We aim to redefine Web3 gaming by creating a blend of engaging gameplay, true asset ownership
+							and sustainable player-driven economies. Envisioning a gaming universe where players have full
+							control over their digital assets while engaging in meaningful, skill-based experiences and benefit
+							from a fair and transparent economy that rewards both time and skill.
+						</p>
 
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} />
-								<p>
-									<b>Charged BeatTrack:</b> Multiple horizontally and vertically moving targets,
-									requiring multiple shots to destroy
-								</p>
-							</li>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} />
-								<p>
-									<b>MultiBeat:</b> Continuously spawning stationary targets
-								</p>
-							</li>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} />
-								<p>
-									<b>SingleBeat:</b> One target active at a time, alternating spawn locations from
-									center to edge
-								</p>
-							</li>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} />
-								<p>And more!</p>
-							</li>
-						</ul>
-					</div>
-					<div className="home-inner-container">
+						<h4 className="text-light">Mission</h4>
 						<p>
-							<b className="text-light fs-300">Custom Game Modes</b>
+							Our mission is to build a high quality, cross compatible gaming ecosystem that prioritizes player
+							enjoyment while leveraging blockchain's advantages by combining innovative technology with
+							engaging game design. Phaser is set to become a leader in the next generation of
+							blockchain gaming.
 						</p>
-						<p>
-							Customize a game mode using a default mode template or a previously created custom mode.
-							Preview the game mode in the menu as you edit. Import a custom mode from a friend, or export
-							yours to them. Some example settings include:
-						</p>
+						<p>We are committed to:</p>
 						<ul>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} />
-								<p>Damage required for deactivation</p>
-							</li>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} />
-								<p>Minimum and maximum target size, including dynamic target sizing</p>
-							</li>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} />
-								<p>Spawn area height/width, including dynamic spawn area height/width</p>
-							</li>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} />
-								<p>Spawn beat delay</p>
-							</li>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} />
-								<p>Target activation, deactivation, destruction conditions</p>
-							</li>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} />
-								<p>Target lifespan</p>
-							</li>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} />
-								<p>Target movement</p>
-							</li>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} />
-								<p>Target spawn cooldown</p>
-							</li>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} />
-								<p>40+ additional settings!</p>
-							</li>
+							<li><b>Gameplay First Design:</b> Ensuring that fun and engaging gameplay remains at the core, avoiding exploitative mechanics often seen in Web3 titles.</li>
+							<li><b>True Digital Ownership:</b> Utilizing Ethereum Virtual Machine (EVM) integration to grant players real ownership of in-game assets, which can be traded, sold, or used across multiple titles.</li>
+							<li><b>True Cross Platform Accessibility:</b> Developing a robust infrastructure that allows multiplayer interactions across PC, console, and mobile through a custom matchmaking system.</li>
+							<li><b>Sustainable Monetization:</b> Implementing fair revenue models such as cosmetic NFTs, optional subscriptions and cosmetic-only battle passes to ensure long-term growth without alienating players.</li>
+							<li><b>Community Empowerment:</b> Giving players and NFT holders a say in the game's evolution through governance models, content creation tools, and interactive engagement.</li>
 						</ul>
 					</div>
 				</div>
-				<div className="home-container">
-					<h3 className="text-light text-center">Advanced Audio Analysis</h3>
+	<div className="home-container">
+					<h3 className="text-light text-center">Games & Ecosystem</h3>
 					<div className="home-inner-container fs-200">
 						<p>
-							The audio analyzer keeps a rolling average of the frequency values across multiple channels.
-							When it detects a change in frequency that is very different from the current rolling
-							average, targets are spawned. The frequency channels (e.g. 0-87 Hz for a bass channel) and
-							the sensitivity for each channel can be fine-tuned in the settings menu.
+							At the heart of <b>Phaser</b>, a hero shooter designed for multiplayer
+							battles and deep player customization. Built on Unreal Engine 5 and powered by our cross platform
+							networking system, SugarShowdown delivers a gaming experience across PC, consoles & mobile devices.
 						</p>
-					</div>
-					<div className="home-inner-container fs-200">
 						<p>
-							When you provide the game with a song file, it analyzes a separate audio track from the one
-							you actually hear. This offset allows the game to account for reaction time. Here&#39;s a
-							short breakdown, using 0.25 seconds for reaction time:
+							The game's success as a foundational project has accelerated the development of four additional games, all of which benefit
+							from the same scalable cross platform technology and shared economy. This interconnected system
+							ensures long term engagement, expanding opportunities for both players and investors alike.
 						</p>
-					</div>
-					<div className="home-inner-container">
-						<Image className="home-img" priority src={Timing} quality={100} alt="timing-example" />
-					</div>
-				</div>
-				<div className="home-container">
-					<h3 className="text-light text-center">Detailed Performance Statistics</h3>
-					<div className="home-inner-container">
+
+						<h4 className="text-light">Key Features:</h4>
 						<ul>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} className="text-light" />
-								<p>
-									<b>Overview:</b> Time played statistics and play frequency across all modes
-								</p>
-							</li>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} className="text-light" />
-								<p className="fw-bold">Default Modes:</p>
-								<ul>
-									<li>
-										<FontAwesomeIcon icon={faPlay} />
-										Score, accuracy, targets destroyed, completion, streak, reaction time, and
-										location accuracy charts
-									</li>
-									<li>
-										<FontAwesomeIcon icon={faPlay} />
-										<p>Filter by game mode, song, difficulty, and date range</p>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} className="text-light" />
-								<p className="fw-bold">Custom Modes:</p>
-								<ul>
-									<li>
-										<FontAwesomeIcon icon={faPlay} />
-										<p>
-											Score, accuracy, targets destroyed, completion, streak, reaction time, and
-											location accuracy charts
-										</p>
-									</li>
-									<li>
-										<FontAwesomeIcon icon={faPlay} />
-										<p>Filter by game mode, song, and date range</p>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} className="text-light" />
-								<p>
-									<b>History:</b> All saved score entries in table format
-								</p>
-							</li>
-						</ul>
-					</div>
-					<div className="home-inner-container">
-						<Image className="home-img" priority src={StatsPreview} quality={100} alt="stats-preview" />
-					</div>
-				</div>
-				<div className="home-container">
-					<h3 className="text-light text-center">Predictive Aim Training</h3>
-					<div className="home-inner-container fs-200">
-						<p>
-							Phaser leverages the power of reinforcement learning to dynamically predict target spawn
-							locations tailored to your unique playstyle.
-						</p>
-					</div>
-					<div className="home-inner-container fs-200">
-						<p>
-							Rather than basing the prediction model on accuracy across all spawn locations, it tracks
-							accuracy from every spawn location to every other spawn location, creating a detailed map of
-							your precision across the entire spawn area. The model adapts quickly to changes in
-							performance, and can be customized further by tuning the parameters in the custom game modes
-							menu.
-						</p>
-					</div>
-					<div className="home-inner-container fs-200">
-						<p>
-							This is an <i>opt-in feature</i> for custom modes only to retain a consistent experience for
-							default modes.
-						</p>
-					</div>
-				</div>
-				<div className="home-container">
-					<h3 className="text-light text-center">Other Settings</h3>
-					<div className="home-inner-container">
-						<ul>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} className="text-light" />
-								<p>Custom crosshair creator</p>
-							</li>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} className="text-light" />
-								<p>Target color settings</p>
-							</li>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} className="text-light" />
-								<p>Standard video/audio settings, including DLSS 3.5</p>
-							</li>
-							<li>
-								<FontAwesomeIcon icon={faCrosshairs} className="text-light" />
-								<p>Sensitivity based on two common competitive FPS games</p>
-							</li>
+							<li><b>True Cross Platform Play:</b> Our custom built matchmaking and networking system allows players from all supported platforms to compete, team up, and trade across PC, Console & Mobile.</li>
+							<li><b>Multiplayer Battles:</b> Competitive & Cooperative Play.</li>
+							<li><b>PvP Action:</b> Engage in intense, skill based combat across handcrafted arenas, featuring team based objectives, free for all battles, and tactical game modes.</li>
+							<li><b>PvE Challenges:</b> Face off against AI controlled enemies in co op missions, raids, and seasonal events, providing varied gameplay for both casual and hardcore players.</li>
+							<li><b>Customizable Characters & NFT Based Skins:</b></li>
+							<ul>
+								<li>Collect & Trade Skins: Players can buy, sell and trade unique NFT based skins, gear and emotes.</li>
+								<li>Limited Edition Cosmetics: Seasonal drops and event exclusive items give players a chance to own rare, high value skins with increasing scarcity over time.</li>
+							</ul>
+							<li><b>Progression & Rewards:</b></li>
+							<ul>
+								<li>Skill Based Earnings: Players can earn in-game assets, rare cosmetics, and collectibles through challenges, ranked matches, and in-game achievements.</li>
+								<li>Upgradeable Assets: Some items gain experience and rarity over time, increasing their utility and value within the in-game economy.</li>
+								<li>Player Driven Marketplace: All earned items can be freely traded, sold, or upgraded, allowing players to take full ownership of their digital assets.</li>
+							</ul>
+							<li><b>Interoperability: Expanding the Candyland Universe</b></li>
+							<ul>
+								<li>Cross Collection NFT Support: Players can integrate third party NFT collections into Sugar Showdown, bringing their favorite digital assets into battle.</li>
+								<li>Multi Game Compatibility: NFT characters, weapons, and cosmetics will carry across multiple Phaser games, ensuring lasting value beyond a single title.</li>
+								<li>Real World Collaborations: Opportunities for partnerships with Web3 projects, brands, and artists to introduce exclusive crossover content.</li>
+							</ul>
 						</ul>
 					</div>
 				</div>
+				<div className="home-container">
+  <h3 className="text-light text-center">WEB3 INTEGRATION & ECONOMY</h3>
+
+  <div className="home-inner-container fs-200">
+    <p>
+      Phaser is designed to integrate Web3 technology, ensuring that blockchain enhances
+      gameplay rather than acting as a barrier to entry. By leveraging Ethereum Virtual Machine (EVM)
+      compatibility, NFTs, and decentralized governance, we create a sustainable economy where players
+      truly own their assets, participate in decision making, and engage in a thriving digital marketplace.
+    </p>
+  </div>
+
+  <div className="home-inner-container fs-200">
+    <h4 className="text-light">Key Features</h4>
+    <h5>True Digital Ownership & Cross Game Utility</h5>
+    <p>
+      Every in-game asset exists as an NFT, to give players full ownership.
+      Phaser enables NFT interoperability, allowing players to use, trade and sell their
+      assets across multiple partner games and platforms.
+      Items gain value over time based on rarity and player achievements, making progression more
+      meaningful.
+    </p>
+  </div>
+
+  <div className="home-inner-container fs-200">
+    <h5>A sustainable, player first economy</h5>
+    <p>
+      Many Web3 games have suffered from unsustainable Play to Earn models, which rely on constant new
+      player onboarding to sustain token value. We prioritise long term economic stability through:
+    </p>
+    <ul>
+      <li>Balanced revenue streams including NFT sales, marketplace fees, battle passes, and premium subscriptions, preventing reliance on speculation driven tokenomics</li>
+      <li>Fair monetization models that focus on cosmetic based purchases rather than pay to win mechanics, ensuring that gameplay remains competitive and fun</li>
+      <li>A built in burning mechanism for NFT upgrades and in-game items, keeping supply balanced and preventing asset inflation</li>
+    </ul>
+  </div>
+
+  <div className="home-inner-container fs-200">
+    <h5>Easy Web3 Onboarding</h5>
+    <p>
+      To attract traditional gamers, Phaser eliminates the complexity of blockchain interactions:
+    </p>
+    <ul>
+      <li>Simple wallet integration with custodial and non-custodial options</li>
+      <li>FIAT & Crypto purchases for NFTs and in-game assets, lowering the barrier to entry for non crypto users</li>
+      <li>Gas free transactions within the game, ensuring smooth and affordable gameplay experiences</li>
+    </ul>
+  </div>
+
+  <div className="home-inner-container fs-200">
+    <h5>Decentralised Governance & Community driven development</h5>
+    <p>
+      Phaser isn't just a game, it's a player led ecosystem where token holders and NFT owners
+      have real influence over its development:
+    </p>
+    <ul>
+      <li>Voting rights on major updates, in-game economy adjustments, and new feature rollouts</li>
+      <li>Community created content such as maps, quests, and cosmetics, with the best submissions becoming part of the game</li>
+      <li>A tiered governance system, allowing engaged players to have a say without overwhelming casual gamers with complex decision making</li>
+    </ul>
+  </div>
+</div>
+				<div className="home-container">
+  <h3 className="text-light text-center">TECHNOLOGY STACK</h3>
+
+  <div className="home-inner-container fs-200">
+  	<h4 className="text-light">5.1 Unreal Engine 5 (UE5) & Performance Scaling</h4>
+    <p>
+      We are using UE5 for its high performance graphics across all platforms, auto adjusting visual fidelity
+      for smooth gameplay, cinematic quality environments (without performance loss), real time lighting
+      and reflections for enhanced immersion. Asset Streaming optimizes memory usage by efficiently
+      loading assets. UE5’s continuous updates ensure long term viability, while modding support allows
+      community driven content. Its advanced tools allow for easy Web3 integration, making it a standout
+      in blockchain gaming.
+    </p>
+  </div>
+
+  <div className="home-inner-container fs-200">
+  	<h4 className="text-light">5.2 Custom Built Framework</h4>
+    <p>
+      Phaser has developed a scalable cross platform networking system, allowing rapid game
+      development and deployment. This framework accelerates content creation by eliminating the need
+      to rebuild multiplayer infrastructure, reducing development time and costs.
+    </p>
+    <p>
+      New titles, expansions, and game modes can be quickly introduced while maintaining a consistent
+      multiplayer experience across PC, consoles, and mobile. This system has already enabled the creation
+      of four diverse games in a short time.
+    </p>
+  </div>
+
+  <div className="home-inner-container fs-200">
+  <h4 className="text-light">5.3 Blockchain Infrastructure</h4>
+    <p>
+      Phaser combines UE5 with Ethereum Virtual Machine (EVM) to deliver a fast, low cost
+      gaming experience with a scalable infrastructure that supports a thriving community, ensuring access
+      and growth for all players.
+    </p>
+    <p>
+      <strong>Ethereum Layer 2 Scaling:</strong> Transactions are executed on low cost, high speed Layer 2 solutions
+      such as Polygon & Arbitrum to reduce gas fees.
+    </p>
+    <p>
+      <strong>Smart Contracts:</strong> Secure, transparent smart contracts govern the in-game economy, ensuring
+      verifiable scarcity and fair distribution of assets.
+    </p>
+  </div>
+</div>
+
 			</div>
 		</>
 	);
